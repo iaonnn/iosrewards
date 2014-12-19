@@ -1,0 +1,46 @@
+<ons-page>
+	<div style="margin-top: 50px;">
+		<ons-row>
+			<ons-col width="100px">Name</ons-col>
+			<ons-col>test</ons-col>
+		</ons-row>
+		<ons-row>
+			<ons-col width="100px">Tel</ons-col>
+			<ons-col>0123456789</ons-col>
+		</ons-row>
+		<ons-row>
+			<ons-col width="100px">Point</ons-col>
+			<ons-col>10</ons-col>
+		</ons-row>
+		<ons-row>
+			<ons-col width="100px">Update</ons-col>
+			<ons-col>2014-01-01 00:01:00</ons-col>
+		</ons-row>
+		<ons-row>
+			<ons-col style="padding: 10px;">
+				<ons-button modifier="large" onclick="modal.show()">
+					<ons-icon icon="fa-qrcode"></ons-icon>
+					Show QRCode
+				</ons-button>
+			</ons-col>
+		</ons-row>
+		<ons-row>
+			<ons-col style="padding: 10px;">
+				<ons-button modifier="large" 
+					onclick="ons.notification.alert({message: 'เมื่อซื้อครบ 100 บาทจะได้รับ 2 แต้ม'});">
+					เงื่อนไขการสะสมแต้ม
+				</ons-button>
+			</ons-col>
+		</ons-row>
+	</div>
+</ons-page>
+
+<ons-modal var="modal">
+	<img src="img/qrcode.png" onclick="modal.hide()">
+</ons-modal>
+
+<style>
+	ons-row {
+		padding: 20px;	
+	}
+</style>
