@@ -1,8 +1,10 @@
 var express = require('express')
 var path = require('path')
 var fs = require('fs')
+var bodyParser = require("body-parser")
 
 var app = express()
+app.use(bodyParser())
 
 // database connection
 var mongoose = require('mongoose');
