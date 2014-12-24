@@ -1,0 +1,24 @@
+<ons-page>
+	<ons-tabbar>
+		<ons-tabbar-item active="true" page="admin/rewards.html">
+			<div class="tab" id="mybutton">
+				<ons-icon icon="ion-star" class="tab-icon"></ons-icon>
+				<div class="tab-label">ให้แต้ม</div>
+			</div>
+		</ons-tabbar-item> 
+
+		<ons-tabbar-item page="admin/manage.html">
+			<div class="tab">
+				<ons-icon icon="ion-gear-a" class="tab-icon"></ons-icon>
+				<div class="tab-label">จัดการ</div>
+			</div>
+		</ons-tabbar-item> 
+
+		<ons-tabbar-item ng-click="myNav.resetToPage('index.html', {animation: 'lift'})">
+			<div class="tab">
+				<ons-icon icon="ion-log-out" class="tab-icon"></ons-icon>
+				<div class="tab-label">ออกจากระบบ</div>
+			</div>
+		</ons-tabbar-item> 
+	</ons-tabbar>
+</ons-page>

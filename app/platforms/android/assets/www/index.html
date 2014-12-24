@@ -18,30 +18,30 @@
 	<script src="js/app.js"></script>
 </head>
 
-<body ng-controller="AppController">
+<body>
 
-	<ons-tabbar>
-		<ons-tabbar-item page="user/news.html">
-			<div class="tab" id="mybutton">
-				<ons-icon icon="ion-home" class="tab-icon"></ons-icon>
-				<div class="tab-label">ข่าวสาร</div>
-			</div>
-		</ons-tabbar-item> 
+<ons-navigator animation="slide" var="myNav">
+	<ons-page ng-controller="LoginController">
+        <ons-toolbar>
+            <div class="center">เข้าสู่ระบบ</div>
+        </ons-toolbar>
 
-		<ons-tabbar-item page="user/map.html">
-			<div class="tab">
-				<ons-icon icon="ion-map" class="tab-icon"></ons-icon>
-				<div class="tab-label">แผนที่</div>
-			</div>
-		</ons-tabbar-item> 
-
-		<ons-tabbar-item active="true" page="user/settings.html">
-			<div class="tab">
-				<ons-icon icon="ion-person" class="tab-icon"></ons-icon>
-				<div class="tab-label">ข้อมูลส่วนตัว</div>
-			</div>
-		</ons-tabbar-item> 
-	</ons-tabbar>
+		<div class="login-form">
+	        <input type="text" class="text-input--underbar" 
+	        	placeholder="ชื่อผู้ใช้ (เบอร์โทร)" ng-model="tel">
+	        <input type="password" class="text-input--underbar" 
+	        	placeholder="รหัสผ่าน" ng-model="password">
+	        <br><br>
+	        <ons-button ng-click="checklogin()" modifier="large" class="login-button">
+		        เข้าสู่ระบบ
+		    </ons-button>
+	        <br>
+	        <ons-button ng-click="myNav.resetToPage('user/reg.html', {animation: 'lift'})" modifier="large--cta">
+		        ลงทะเบียนใหม่
+		    </ons-button>
+        </div>
+	</ons-page>
+</ons-navigator>
 
 </body>
 </html>

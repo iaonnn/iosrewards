@@ -2,10 +2,10 @@
 	text-align: left;
 }
 
+/* CSS News */
 .tab {
 	line-height: 1;
 }
-
 .tab-icon {
 	font-size: 24px;
 	padding: 0;
@@ -90,7 +90,7 @@
 	float: right;
 }
 
-
+/* CSS Sliding Menu */
 .page--menu-page__background {
   background-color: #333;
   color: white;
@@ -142,4 +142,31 @@
 
 .bottom-menu-item:active {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* CSS Login */
+.login-form {
+  text-align: center;
+  width: 80%;
+  margin: 60px auto 0;
+}
+
+input[type=text], input[type=password] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.login-button {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forgot-password {
+  display: block;
+  margin: 8px auto 0 auto;
+  font-size: 14px;
 }
