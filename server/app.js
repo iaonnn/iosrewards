@@ -8,7 +8,7 @@ app.use(bodyParser())
 
 // database connection
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/mydb');
+mongoose.connect('mongodb://localhost:27017/db_rewards');
 
 // dynamically include routes (Controller)
 fs.readdirSync('./controllers').forEach(function (file) {
