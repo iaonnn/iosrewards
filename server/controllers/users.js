@@ -16,6 +16,7 @@ module.exports.controller = function(app) {
         })
     })
 
+<<<<<<< HEAD
     app.get('/user/create/:type/:tel/:pass', function(req, res) {
         var user = new User({
             name: 'test',
@@ -37,4 +38,13 @@ module.exports.controller = function(app) {
             })
         })
     })
+=======
+    app.get('/user/list', function(req, res) {
+        User.find({type: 'USER'}, function (err, users) {
+            if (err) return handleError(err);
+            res.json(users)
+        })
+    })
+
+>>>>>>> app : index.html of user & admin
 }

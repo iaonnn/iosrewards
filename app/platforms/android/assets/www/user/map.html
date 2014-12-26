@@ -1,5 +1,30 @@
 <ons-page>
-	<div style="margin-top: 20px;" align="center">
-		<h1>Map</h1>
-	</div>
+	<ons-toolbar>
+	    <div  class="center">More Rewards</div>
+	</ons-toolbar>
+
+	<div id="map-canvas">Loading...</div>
+
+	<script src="https://maps.googleapis.com/maps/api/js?"></script>
+	<script>
+		alert('ddd')
+		function initialize() {
+			var mapOptions = {
+				center: new google.maps.LatLng(13, 13),
+				zoom: 13
+			}
+
+			var mapObj = document.getElementById("map-canvas")
+			var map = new google.maps.Map(mapObj, mapOptions)
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize)
+	</script>
 </ons-page>
+
+<style>
+	#map-canvas {
+		padding: 20px;
+		height: 100%;
+	}	
+</style>

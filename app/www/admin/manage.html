@@ -1,0 +1,57 @@
+<ons-page>
+ 	<ons-navigator var="adminNav" animation="slide">
+		<ons-toolbar>
+	    	<div class="center">Admin Rewards</div>
+	  	</ons-toolbar>
+
+	  	<ons-list-header>Menu Member</ons-list-header>
+          	<ons-list-item onclick="adminNav.pushPage('admin/menu/manage_member.html')" 
+          		modifier="tappable chevron">
+          		จัดการสมาชิก
+          	</ons-list-item>
+        </ons-list>
+
+	  	<ons-list class="list ons-list-inner">
+	        <ons-list-header class="list__header ons-list-header-inner">Menu Member</ons-list-header>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_manage.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          จัดการสมาชิก
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_data.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ดูข้อมูลสมาชิก
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_rewards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          การให้แต้มสมาชิก
+	        </ons-list-item>
+
+	      </ons-list>
+	     <ons-list class="list ons-list-inner">
+	        <ons-list-header class="list__header ons-list-header-inner">Menu Sell</ons-list-header>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_day.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ยอดขายรายวัน
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_month.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ยอดขายรายเดือน
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_year.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ยอดขายรายปี
+	        </ons-list-item>
+	      </ons-list>
+
+	      </ons-list>
+	     <ons-list class="list ons-list-inner">
+	        <ons-list-header class="list__header ons-list-header-inner">Menu News</ons-list-header>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_pro.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ข่าวสารโปรโมชัน
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_conrewards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          เงื่อนไขการสะสม
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_conspe.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          เงื่อนไขการสะสมพิเศษ
+	        </ons-list-item>
+	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_backreeards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
+	          ข้อมูลการแลกรับ
+	        </ons-list-item>
+	    </ons-list>
+    </ons-navigator>
+</ons-page>
