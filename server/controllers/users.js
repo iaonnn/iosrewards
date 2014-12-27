@@ -53,4 +53,15 @@ module.exports.controller = function(app) {
         })
     })
 
+    app.post('/user/reg', function(req, res) {
+        var data = req.body
+        console.log(data)
+
+        var reg = new User(req.body)
+        reg.save(function (err) {
+            if (err) return handleError(err);
+            res.end('reg success')
+        })
+    }) 
+
 }

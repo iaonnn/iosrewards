@@ -1,0 +1,64 @@
+<ons-page ng-controller="RegController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button>ยกเลิก</ons-back-button>
+		</div>
+		<div class="center">Register</div>
+		<div class="right">
+			<ons-toolbar-button ng-click="save()">บันทึก</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<ons-list>
+		<ons-list-item>
+			<input type="text" ng-model="name" placeholder="Name" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+		<ons-list-item>
+		  	<input type="text" ng-model="lastname" placeholder="Lastname" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+		<ons-list-item>
+		  	<input type="tel" ng-model="tel" placeholder="Tel." class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+		<ons-list-item>
+		   <input type="date" ng-model="birthday" name="bday" ng-model="value" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;" placeholder="yyyy-MM-dd" min="1980-01-01" max="2000-12-31" required />
+		</ons-list-item>
+
+		<ons-list-item>
+		  	<ons-row>
+				<ons-col width="90px">
+					<span style="color: #666">Gender</span>
+				</ons-col>
+				<ons-col>
+				  	<div style="float: right; padding-right: 16px;">
+						<label class="radio-button">
+						  <input type="radio" name="level" ng-model="gender" value="Male">
+						  <div class="radio-button__checkmark"></div>
+						  ชาย
+						</label>
+						<label class="radio-button">
+						  <input type="radio" name="level" ng-model="gender" value="Famale">
+						  <div class="radio-button__checkmark"></div>
+						  หญิง
+						</label>
+				  	</div>
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+	  
+		<ons-list-item>
+		  	<input type="email" ng-model="email" placeholder="Email" pattern="[^ @]*@[^ @]*" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+	  	<ons-list-item>
+		  	<input type="password" ng-model="password1" placeholder="Password" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+		<ons-list-item>
+		  	<input type="password" ng-model="password2" placeholder="Re-Password" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		</ons-list-item>
+
+	</ons-list>	
+</ons-page>
