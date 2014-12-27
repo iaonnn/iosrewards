@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var spacialrewardsSchema = new mongoose.Schema({
-      pId: String,
+      _pId: {type: String, ref: 'programlist'},
       point: Number
 })
 

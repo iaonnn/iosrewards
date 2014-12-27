@@ -18,4 +18,21 @@ module.exports.controller = function(app) {
 		
 	})
 
+	app.get('/rewards/list', function(req, res) {
+		Rewards.findOne({}, function(err, rewards) {
+			res.json(rewards)
+		})
+	})
+
+	app.post('/rewards/save', function(req, res) {
+		Rewards.findOne({}, function(err, rewards) {
+			rewards.point = req.body.point
+			rewards.total = req.body.total
+			
+			rewards.save(function(err) {
+				res.end('rewards save')
+			})
+		})
+	})
+
 }

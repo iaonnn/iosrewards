@@ -7,7 +7,7 @@ app.config(function($sceDelegateProvider) {
    ]);
 });
 
-app.factory('Share', function() {
+app.factory('Share', function($http) {
 	var tel = false
 
 	return {

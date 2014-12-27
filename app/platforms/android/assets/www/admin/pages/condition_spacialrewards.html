@@ -1,0 +1,47 @@
+<!--ng-controller="RewardsSpacialCtrl"-->
+<ons-page ng-controller="RewardsController">
+	<ons-toolbar>
+		<div class="center">เงื่อนไขพิเศษ</div>
+		<div class="left">
+			<ons-back-button>กลับ</ons-back-button>
+		</div>
+		<div class="right">
+	    	<ons-toolbar-button ng-click="spacialrewardsSave()">
+	    		<ons-icon icon="fa-plus"></ons-icon>
+	    	</ons-toolbar-button>
+	    </div>
+	</ons-toolbar>
+
+	<ons-list>
+		<ons-list-item modifier="chevron" ng-click="List.show()">
+			<ons-icon icon="fa-tag" style="opacity:0.2; padding-right: 20px;"></ons-icon>
+			{{pSelect.name}}
+		</ons-list-item>
+		<ons-list-item>
+			<input ng-model="point" type="text" placeholder="ได้รับ (แต้ม)" class="text-input text-input--transparent" style="width: 100%;">
+		</ons-list-item>
+	</ons-list>
+
+	<ons-list>
+		<ons-list-header>รายการ</ons-list-header>
+		<ons-list-item ng-repeat="data in spacialrewards" modifier="tappable">
+			{{data._pId.name}} <b>[{{data.point}} แต้ม]</b>
+			<span class="list-item-action">
+            	<ons-icon ng-click="spacialrewardsDelete(data._pId._id)" icon="ion-minus-circled" size="22px"></ons-icon>
+          	</span>
+		</ons-list-item>
+	</ons-list>
+
+	<ons-modal var="List">
+		<ons-scroller style="height: 90%;">
+			<ons-list style="margin: 20px; border-radius: 10px;">
+				<ons-list-header style="padding: 3px;">
+					<input ng-model="q" type="search" class="search-input" style="width: 96%; margin: 6px;" placeholder="ค้นหา">
+				</ons-list-header>
+				<ons-list-item ng-repeat="data in programlists | filter:q" ng-click="selectpId(data._id, data.name)" modifier="chevron">
+					{{data.name}}
+				</ons-list-item>
+			</ons-list>
+		</ons-scroller>
+	</ons-modal>
+</ons-page>

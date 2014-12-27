@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var programlistSchema = new mongoose.Schema({
-      id: String,
+      _id: String,
       name: String,
       cost: Number,
 })

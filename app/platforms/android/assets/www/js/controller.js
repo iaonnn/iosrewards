@@ -7,7 +7,7 @@ app.controller('AppController', function($scope, $http) {
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http) {
 
-	//myNav.resetToPage('admin/index.html', {animation: 'none'})
+	myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
@@ -105,5 +105,66 @@ app.controller('RegController', function($scope, $http) {
         	alert('pw not wrong')
       	}
   	}
+
+})
+
+/* admin : give & condition rewards */
+app.controller('RewardsController', function($scope, $http) {
+
+	$scope.listRewards = function(){
+		$http.get(serverUrl + '/rewards/list').success(function(data) {
+			$scope.rewards = data
+		})
+		$http.get(serverUrl + '/spacialrewards/list').success(function(data) {
+			$scope.spacialrewards = data
+		})
+		$http.get(serverUrl + '/programlist/list').success(function(data) {
+			$scope.programlists = data
+		})
+	}
+	$scope.listRewards()
+
+	$scope.rewardssave = function() {
+		var data = {
+			total : parseInt($scope.total),
+			point : parseInt($scope.point)
+		}
+		
+		$http.post(serverUrl + '/rewards/save', data).success(function(data) {
+			alert(data)
+			$scope.total = ''
+			$scope.point = ''
+			$scope.listRewards()
+		})
+	}
+
+	$scope.spacialrewardsSave = function() {
+		var data = {
+			_pId 	: $scope.pSelect._id,
+			point 	: parseInt($scope.point)
+		}
+
+		console.log(data)
+
+		$http.post(serverUrl + '/spacialrewards/save', data).success(function(data) {
+			//alert(data)
+			$scope.pSelect = {}
+			$scope.point = ''
+			$scope.listRewards()
+		})
+
+	}
+
+	$scope.spacialrewardsDelete = function(pId) {
+		$http.get(serverUrl + '/spacialrewards/delete/' + pId).success(function(data) {
+			//alert(data)
+			$scope.listRewards()
+		})
+	}
+
+	$scope.selectpId = function(id, name) {
+		$scope.pSelect = {_id: id, name: name}
+		List.hide()
+	}
 
 })

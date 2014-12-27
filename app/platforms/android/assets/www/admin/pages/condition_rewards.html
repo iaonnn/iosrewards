@@ -1,0 +1,44 @@
+<ons-page ng-controller="RewardsController">
+	<ons-toolbar>
+		<div class="left">
+	    	<ons-back-button>กลับ</ons-back-button>
+	    </div>
+	    <div class="center">เงื่อนไขการสะสมแต้ม</div>
+	    <div class="right">
+	    	<ons-toolbar-button ng-click="rewardssave()">
+	    		บันทึก
+	    	</ons-toolbar-button>
+	    </div>
+  	</ons-toolbar>
+
+	<ons-list>
+		<ons-list-item>
+	        <ons-row>
+	        	<ons-col class="form-row">
+	          		<input ng-model="total" type="text" class="text-input--underbar width-full" placeholder="ซื้อครบ (บาท)" value="">
+	          	</ons-col>
+	          	<ons-col class="form-row">
+	          		<input ng-model="point" type="text" class="text-input--underbar width-full" placeholder="ได้รับ (แต้ม)" value="">
+	          	</ons-col>
+	        </ons-row>
+		</ons-list-item>
+
+        <ons-list-header>เงื่อนไขเดิม</ons-list-header>
+        <ons-list-item>
+        	ซื้อสินค้าครบ : {{rewards.total}} บาท 
+        </ons-list-item>
+        <ons-list-item>
+        	ได้รับแต้ม : {{rewards.point}} แต้ม
+        </ons-list-item>
+
+        <div ng-if="total && point">
+	        <ons-list-header>เงื่อนไขใหม่</ons-list-header>
+	        <ons-list-item>
+	        	ซื้อสินค้าครบ : {{total}} บาท 
+	        </ons-list-item>
+	        <ons-list-item>
+	        	ได้รับแต้ม : {{point}} แต้ม
+	        </ons-list-item>
+        </div>
+ 	</ons-list>
+</ons-page>
