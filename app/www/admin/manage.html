@@ -4,7 +4,8 @@
 	    	<div class="center">Admin Rewards</div>
 	  	</ons-toolbar>
 
-	  	<ons-list-header>Menu Member</ons-list-header>
+	  	<ons-list>
+	  		<ons-list-header>Menu Member</ons-list-header>
           	<ons-list-item onclick="adminNav.pushPage('admin/pages/member_manage.html')" 
           		modifier="tappable chevron">
           		จัดการสมาชิก
@@ -32,17 +33,23 @@
 	        </ons-list-item>
 	      </ons-list>
 
+	     <ons-list>
+	    	<ons-list-header>Menu News</ons-list-header>
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/condition_rewards.html')" 
+          		modifier="tappable chevron">
+          		เงื่อนไขการสะสมแต้ม
+          	</ons-list-item>
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/condition_spacialrewards.html')" 
+          		modifier="tappable chevron">
+          		เงื่อนไขการสะสมแต้มพิเศษ
+          	</ons-list-item>
+        </ons-list>
+
 	      </ons-list>
 	     <ons-list class="list ons-list-inner">
 	        <ons-list-header class="list__header ons-list-header-inner">Menu News</ons-list-header>
 	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_pro.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
 	          ข่าวสารโปรโมชัน
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_conrewards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          เงื่อนไขการสะสม
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_conspe.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          เงื่อนไขการสะสมพิเศษ
 	        </ons-list-item>
 	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_backreeards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
 	          ข้อมูลการแลกรับ

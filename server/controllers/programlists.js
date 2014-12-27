@@ -5,9 +5,9 @@ module.exports.controller = function(app) {
 
 	app.get('/programlist', function(req, res) {
 		var obj = new Programlist({
-			id: 'P01',
-	      	name: 'เนยนม',
-	      	cost: 14,
+			_id: 'P03',
+	      	name: 'ไมโลนมสด ปั่น',
+	      	cost: 25,
 		})
 
 		obj.save(function(err) {
@@ -16,7 +16,12 @@ module.exports.controller = function(app) {
 				res.json(programlist)
 			})
 		})
-		
+	})
+
+	app.get('/programlist/list', function(req, res) {
+		Programlist.find({}, function(err, programlist) {
+			res.json(programlist)
+		})
 	})
 
 }
