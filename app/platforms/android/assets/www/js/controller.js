@@ -1,13 +1,29 @@
 var serverUrl = 'http://localhost:2222'
 
 app.controller('AppController', function($scope, $http) {
+	$scope.map = { 
+		center: { 
+			latitude: 14.9047824,
+			longitude: 102.0107774
+		}, 
+		zoom: 13,
+	}
 
+	$scope.marker = {
+		options : {
+			draggable: false
+		}
+	}
+
+	$scope.test = function() {
+		alert('click')
+	}
 })
 
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	//myNav.resetToPage('admin/index.html', {animation: 'none'})
+	myNav.resetToPage('user/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
