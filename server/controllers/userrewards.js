@@ -5,8 +5,8 @@ module.exports.controller = function(app) {
 
 	app.get('/userrewards', function(req, res) {
 		var obj = new Userrewards({
+			_id: '222',
 			name: 'test test',
-			tel: '222',
 			points: 5,
 			update: new Date
 		})
@@ -17,7 +17,12 @@ module.exports.controller = function(app) {
 				res.json(userrewards)
 			})
 		})
-		
+	})
+
+	app.get('/userrewards/:tel', function(req, res) {
+		Userrewards.findOne({_id: req.params.tel}, function(err, userrewards) {
+			res.json(userrewards)
+		})
 	})
 
 }

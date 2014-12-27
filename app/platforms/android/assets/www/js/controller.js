@@ -5,15 +5,16 @@ app.controller('AppController', function($scope, $http) {
 })
 
 /* user, admin : Login */
-app.controller('LoginController', function($scope, $http) {
+app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('admin/index.html', {animation: 'none'})
+	//myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
 
 		$http.get(serverUrl + '/login/' + tel).success(function(user) {
 			if(user != null) {
+				Share.setTel(user.tel)
 				if(user.type == 'ADMIN')
 					myNav.resetToPage('admin/index.html', {animation: 'lift'})
 				else
@@ -166,5 +167,76 @@ app.controller('RewardsController', function($scope, $http) {
 		$scope.pSelect = {_id: id, name: name}
 		List.hide()
 	}
+
+})
+
+/* admin : give point */
+app.controller('PointController', function($scope, $http, $filter) {
+
+	$scope.date = $filter('date')(new Date(), 'fullDate')
+
+	$scope.list = function() {
+		$http.get(serverUrl + '/rewards/list').success(function(data) {
+			$scope.rewards = data
+		})
+	}
+	$scope.list()
+	
+	$scope.sumPoint = function() {
+		var total = parseInt($scope.total)
+		var rwTotal = parseInt($scope.rewards.total)
+		var rwPoint = parseInt($scope.rewards.point)
+
+		var getPoint = Math.floor((total/rwTotal)) * rwPoint
+
+		$scope.point = getPoint
+	}
+
+	$scope.save = function() {
+		var tel = $scope.tel
+		$http.get(serverUrl + '/user/list/' + tel).success(function(data) {
+			var fullName = data.name + ' ' + data.lastname
+			var data = {
+				date 	: new Date(),
+				tel 	: tel,
+	      		total 	: parseInt($scope.total),
+	     		point 	: parseInt($scope.point),
+	     		fullName : fullName
+			}
+			console.log(data)
+			$http.post(serverUrl + '/sellpoint/save', data).success(function(data) {
+				alert(data)
+				$scope.tel = ''
+				$scope.total = ''
+				$scope.point = ''
+				$scope.list()
+			})
+		})
+	}
+
+})
+
+/* admin : report */
+app.controller('ReportController', function($scope, $http) {
+
+	$scope.reportSellpoint = function() {
+		$http.get(serverUrl + '/sellpoint/report').success(function(data) {
+			$scope.sellpoints = data
+		})
+	}
+	$scope.reportSellpoint()
+
+})
+
+/* user : data of user */
+app.controller('UserController', function($scope, $http, $filter, Share) {
+
+	$scope.listRewards = function() {
+		$http.get(serverUrl + '/userrewards/' + Share.getTel()).success(function(data) {
+			$scope.userrewards = data
+			$scope.update = $filter('date')(data.update, 'yyyy-MM-dd HH:mm:ss')
+		})
+	}
+	$scope.listRewards()
 
 })
