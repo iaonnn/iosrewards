@@ -10,9 +10,9 @@ module.exports.controller = function(app) {
     })
 
     app.get('/user/list/:tel', function(req, res) {
-        User.find({tel: req.params.tel}, function (err, users) {
+        User.findOne({tel: req.params.tel}, function (err, user) {
             if (err) return handleError(err);
-            res.json(users)
+            res.json(user)
         })
     })
 
@@ -42,6 +42,14 @@ module.exports.controller = function(app) {
         User.find({type: 'USER'}, function (err, users) {
             if (err) return handleError(err);
             res.json(users)
+        })
+    })
+
+    app.post('/user/update/:tel', function(req, res) {        
+        User.update({tel: req.params.tel}, {$set: req.body}, function(err) {
+            if (err) return handleError(err)
+            console.log('User %s : update', req.params.tel)
+            res.end('Success')
         })
     })
 
