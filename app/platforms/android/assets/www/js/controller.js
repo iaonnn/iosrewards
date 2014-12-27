@@ -22,8 +22,6 @@ app.controller('LoginController', function($scope, $http) {
 			}
 		})
 	}
-<<<<<<< HEAD
-=======
 })
 
 var serverUrl = 'http://localhost:2222'
@@ -37,5 +35,4 @@ app.controller('UserManageController', function($scope, $http) {
 	$scope.edit = function() {
 		
 	}
->>>>>>> app : index.html of user & admin
 })
