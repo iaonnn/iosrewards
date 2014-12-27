@@ -185,12 +185,14 @@ input[type=text], input[type=password] {
 }
 
 .lucent {
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .note {
   margin: 12px 8px;
-  font-size: 13px;
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
 }
 
 .vspc {

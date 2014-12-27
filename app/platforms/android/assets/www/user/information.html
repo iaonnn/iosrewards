@@ -1,20 +1,20 @@
-<ons-page>
+<ons-page ng-controller="UserController">
 	<div style="margin-top: 50px;">
 		<ons-row>
 			<ons-col width="100px">Name</ons-col>
-			<ons-col>test</ons-col>
+			<ons-col>{{userrewards.name}}</ons-col>
 		</ons-row>
 		<ons-row>
 			<ons-col width="100px">Tel</ons-col>
-			<ons-col>0123456789</ons-col>
+			<ons-col>{{userrewards._id}}</ons-col>
 		</ons-row>
 		<ons-row>
 			<ons-col width="100px">Point</ons-col>
-			<ons-col>10</ons-col>
+			<ons-col>{{userrewards.points}}</ons-col>
 		</ons-row>
 		<ons-row>
 			<ons-col width="100px">Update</ons-col>
-			<ons-col>2014-01-01 00:01:00</ons-col>
+			<ons-col>{{update}}</ons-col>
 		</ons-row>
 		<ons-row>
 			<ons-col style="padding: 10px;">

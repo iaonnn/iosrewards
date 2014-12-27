@@ -1,0 +1,35 @@
+<ons-page ng-controller="ReportController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button>กลับ</ons-back-button>
+		</div>
+		<div class="center">การให้แต้มย้อนหลัง</div>
+	</ons-toolbar>
+
+	<ons-list>
+		<ons-list-header style="padding: 2px;">
+			<input ng-model="q" type="search" class="search-input" style="width: 96%; margin: 6px;" placeholder="ค้นหา">
+		</ons-list-header>
+		<ons-list-item>
+			<ons-row style="font-weight: bold;">
+				<ons-col width="50px" align="center">คะแนน</ons-col>
+				<ons-col align="center">ลูกค้า</ons-col>
+				<ons-col width="100px" align="center">การซื้อ(บาท)</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list>
+
+	<ons-list ng-repeat="datas in sellpoints | filter:q">
+		<ons-list-header>
+			{{datas._id.day}}/{{datas._id.month}}/{{datas._id.year}}
+		</ons-list-header>
+		
+		<ons-list-item ng-repeat="data in datas.sellpoint">
+			<ons-row>
+				<ons-col width="50px" align="center">{{data.point}}</ons-col>
+				<ons-col align="center">{{data.tel}}</ons-col>
+				<ons-col width="100px" align="center">{{data.total}}</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list>
+</ons-page>

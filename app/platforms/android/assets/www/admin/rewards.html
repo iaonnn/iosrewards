@@ -1,10 +1,30 @@
-<ons-page>
- 	<ons-navigator var="myNavigator">
+<ons-navigator var="myNavigator">
+	<ons-page ng-controller="PointController">
 		<ons-toolbar>
 	    	<div class="center">Admin Rewards</div>
 	  	</ons-toolbar>
 
-	  	<br />
-	  	ให้แต้ม
-	</ons-navigator>
-</ons-page>
+	  	<ons-list>
+	  		<ons-list-header style="padding: 5px;">
+	  			{{date}}
+	  		</ons-list-header>
+	  		<ons-list-item>
+	  			<input type="text" ng-model="tel" placeholder="เบอร์โทร" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+	  		</ons-list-item>
+	  		<ons-list-item>
+	  			<input type="text" ng-model="total" ng-change="sumPoint()" placeholder="มูลค่า (บาท)" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+	  		</ons-list-item>
+	  		<ons-list-item>
+	  			<input type="text" ng-model="point" placeholder="ได้รับ (แต้ม)" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+	  		</ons-list-item>
+	  	</ons-list>
+
+	  	<div class="lucent">
+	        <p class="note">ซื้อครบ {{rewards.total}} ได้รับ {{rewards.point}} แต้ม</p>
+	    </div>
+
+	  	<div style="margin: 8px;">
+	  		<ons-button modifier="large" ng-click="save()">บันทึก</ons-button>
+	  	</div>
+	</ons-page>
+</ons-navigator>

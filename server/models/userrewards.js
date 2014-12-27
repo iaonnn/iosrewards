@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var userrewardsSchema = new mongoose.Schema({
+	_id: String,
 	name: String,
-	tel: String,
 	points: Number,
 	update: Date
 })
