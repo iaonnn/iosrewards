@@ -5,25 +5,20 @@
 	  	</ons-toolbar>
 
 	  	<ons-list-header>Menu Member</ons-list-header>
-          	<ons-list-item onclick="adminNav.pushPage('admin/menu/manage_member.html')" 
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/member_manage.html')" 
           		modifier="tappable chevron">
           		จัดการสมาชิก
           	</ons-list-item>
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/member_data.html')" 
+          		modifier="tappable chevron">
+          		ดูข้อมูลสมาชิก
+          	</ons-list-item>
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/member_rewards.html')" 
+          		modifier="tappable chevron">
+          		การให้แต้มสมาชิก
+          	</ons-list-item>
         </ons-list>
 
-	  	<ons-list class="list ons-list-inner">
-	        <ons-list-header class="list__header ons-list-header-inner">Menu Member</ons-list-header>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_manage.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          จัดการสมาชิก
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_data.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ดูข้อมูลสมาชิก
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_member_rewards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          การให้แต้มสมาชิก
-	        </ons-list-item>
-
-	      </ons-list>
 	     <ons-list class="list ons-list-inner">
 	        <ons-list-header class="list__header ons-list-header-inner">Menu Sell</ons-list-header>
 	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_day.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">

@@ -6,3 +6,16 @@ app.config(function($sceDelegateProvider) {
      'self'
    ]);
 });
+
+app.factory('Share', function() {
+	var tel = false
+
+	return {
+		getTel : function() {
+			return tel
+		},
+		setTel : function(newTel) {
+			tel = newTel
+		}
+	}
+})
