@@ -1,3 +1,9 @@
+/* Map */
+.angular-google-map-container { 
+  height: 400px; 
+}
+/* --- */
+
 .left {
 	text-align: left;
 }

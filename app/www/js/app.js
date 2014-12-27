@@ -1,4 +1,4 @@
-var app = angular.module('app', ['onsen'])
+var app = angular.module('app', ['onsen', 'uiGmapgoogle-maps'])
 
 app.config(function($sceDelegateProvider) {
    $sceDelegateProvider.resourceUrlWhitelist([
@@ -6,6 +6,14 @@ app.config(function($sceDelegateProvider) {
      'self'
    ]);
 });
+
+app.config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        //    key: 'your api key',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
+    });
+})
 
 app.factory('Share', function($http) {
 	var tel = false
