@@ -1,6 +1,11 @@
 <ons-page ng-controller="AppController">
-	<ons-toolbar>
-	    <div  class="center">More Rewards</div>
+	<ons-toolbar modifier="transparent">
+		<div class="left">
+			<ons-back-button></ons-back-button>
+		</div>
+	    <div class="center">
+	    	<img src="img/MoreRewards.png" style="margin-top: 4px;">
+	    </div>
 	</ons-toolbar>
 
 	<ui-gmap-google-map center='map.center' zoom='map.zoom' options='marker.options'>

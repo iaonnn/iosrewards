@@ -23,7 +23,7 @@ app.controller('AppController', function($scope, $http) {
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('admin/index.html', {animation: 'none'})
+	myNav.resetToPage('user/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel

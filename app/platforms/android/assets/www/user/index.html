@@ -1,24 +1,74 @@
 <ons-page>
-	<ons-tabbar>
-		<ons-tabbar-item active="true" page="user/news.html">
-			<div class="tab" id="mybutton">
-				<ons-icon icon="ion-home" class="tab-icon"></ons-icon>
-				<div class="tab-label">ข่าวสาร</div>
-			</div>
-		</ons-tabbar-item> 
+	<ons-toolbar>
+		<div class="center">
+	    	<img src="img/MoreRewards-tiny.png" style="margin-top: 8px;">
+	    </div>
+	    <div class="right">
+		    <ons-toolbar-button>
+		    	<ons-icon onclick="myNav.pushPage('user/settings.html', {animation: 'lift'})" icon="ion-gear-a"></ons-icon>
+		    </ons-toolbar-button>
+	    </div>
+	</ons-toolbar>
 
-		<ons-tabbar-item page="user/map.html">
-			<div class="tab">
-				<ons-icon icon="ion-map" class="tab-icon"></ons-icon>
-				<div class="tab-label">แผนที่</div>
+	<ons-row>
+		<ons-col width="50%" style="border-right: 3px dashed blue;">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu">
+					<ons-icon icon="ion-card" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>My Card
+				</div>
 			</div>
-		</ons-tabbar-item> 
+		</ons-col>
+		<ons-col width="50%" align="center">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu" onclick="myNav.pushPage('user/news.html')">
+					<ons-icon icon="ion-chatbox-working" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>ข่าวโปรฯ
+				</div>
+			</div>
+		</ons-col>
+	</ons-row>
+	<ons-row>
+		<ons-col width="50%" align="center" style="border-right: 3px solid blue;">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu">
+					<ons-icon icon="ion-checkmark-circled" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>แลกรางวัล
+				</div>
+			</div>
+		</ons-col>
+		<ons-col width="50%" align="center">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu" onclick="myNav.pushPage('user/map.html')">
+					<ons-icon icon="ion-map" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>แผนที่
+				</div>
+			</div>
+		</ons-col>
+	</ons-row>
+	<ons-row>
+		<ons-col width="50%" align="center" style="border-right: 3px dashed blue;">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu" style="background-image: url('img/icon-fb.jpg'); background-position: center;">
+					<ons-icon icon="fa-facebook-square" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>Facebook
+				</div>
+			</div>
+		</ons-col>
+		<ons-col width="50%" align="center">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu" style="background-image: url('img/icon-ig.jpg'); background-position: center;">
+					<ons-icon icon="fa-instagram" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>Instagram
+				</div>
+			</div>
+		</ons-col>
+	</ons-row>
 
-		<ons-tabbar-item page="user/settings.html">
-			<div class="tab">
-				<ons-icon icon="ion-person" class="tab-icon"></ons-icon>
-				<div class="tab-label">ข้อมูลส่วนตัว</div>
-			</div>
-		</ons-tabbar-item> 
-	</ons-tabbar>
 </ons-page>
