@@ -63,9 +63,55 @@ module.exports.controller = function(app) {
 					$push : {
 						tel: "$tel",
      					total: "$total",
-     					point: "$point"
+     					point: "$point",
+     					date: "$date"
       				}
       			}
+			}
+		}], function(err, result) {
+			res.json(result)
+		})
+	})
+
+	app.get('/sellpoint/report/day', function(req, res) {
+		console.log('day')
+		Sellpoint.aggregate([{
+			$group : {
+				_id : { 
+					day 	: { $dayOfMonth: "$date" }, 
+					month 	: { $month: "$date" }, 
+					year 	: { $year: "$date" } 
+				},
+				total : { $sum : "$total" }
+			}
+		}], function(err, result) {
+			res.json(result)
+		})
+	})
+
+	app.get('/sellpoint/report/month', function(req, res) {
+		console.log('month')
+		Sellpoint.aggregate([{
+			$group : {
+				_id : { 
+					month 	: { $month: "$date" }, 
+					year 	: { $year: "$date" } 
+				},
+				total : { $sum : "$total" }
+			}
+		}], function(err, result) {
+			res.json(result)
+		})
+	})
+
+	app.get('/sellpoint/report/year', function(req, res) {
+		console.log('year')
+		Sellpoint.aggregate([{
+			$group : {
+				_id : {  
+					year 	: { $year: "$date" } 
+				},
+				total : { $sum : "$total" }
 			}
 		}], function(err, result) {
 			res.json(result)
