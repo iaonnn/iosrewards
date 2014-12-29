@@ -30,6 +30,14 @@
 
 	    <ons-list>
 	    	<ons-list-header>Menu News</ons-list-header>
+	    	<ons-list-item onclick="adminNav.pushPage('admin/pages/news_manage.html')" 
+          		modifier="tappable chevron">
+          		ข่าวสารโปรโมชัน
+          	</ons-list-item>
+          	<ons-list-item onclick="adminNav.pushPage('admin/pages/.html')" 
+          		modifier="tappable chevron">
+          		ข้อมูลการแลกรับ
+          	</ons-list-item>
           	<ons-list-item onclick="adminNav.pushPage('admin/pages/condition_rewards.html')" 
           		modifier="tappable chevron">
           		เงื่อนไขการสะสมแต้ม
@@ -39,16 +47,5 @@
           		เงื่อนไขการสะสมแต้มพิเศษ
           	</ons-list-item>
         </ons-list>
-
-	      </ons-list>
-	     <ons-list class="list ons-list-inner">
-	        <ons-list-header class="list__header ons-list-header-inner">Menu News</ons-list-header>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_pro.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ข่าวสารโปรโมชัน
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_new_backreeards.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ข้อมูลการแลกรับ
-	        </ons-list-item>
-	    </ons-list>
     </ons-navigator>
 </ons-page>
