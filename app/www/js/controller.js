@@ -23,7 +23,7 @@ app.controller('AppController', function($scope, $http) {
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('user/index.html', {animation: 'none'})
+	//myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
@@ -235,6 +235,8 @@ app.controller('PointController', function($scope, $http, $filter) {
 /* admin : report */
 app.controller('ReportController', function($scope, $http) {
 
+	$scope.tab = 'day'
+
 	$scope.reportSellpoint = function() {
 		$http.get(serverUrl + '/sellpoint/report').success(function(data) {
 			$scope.sellpoints = data
@@ -242,6 +244,15 @@ app.controller('ReportController', function($scope, $http) {
 	}
 	$scope.reportSellpoint()
 
+	$scope.report = function() {
+		var val = $scope.tab
+		$http.get(serverUrl + '/sellpoint/report/' + val).success(callback) 
+	}
+	$scope.report()
+
+	function callback(data) {
+		$scope.datas = data
+	}
 })
 
 /* user : data of user */

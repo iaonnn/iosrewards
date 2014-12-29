@@ -1,0 +1,51 @@
+<ons-page ng-controller="ReportController">
+	<ons-toolbar>
+		<div class="center">รายงานการขาย</div>
+		<div class="right">
+			<ons-toolbar-button onclick="myNav.popPage()">
+				ปิด
+			</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<div class="tab-bar tab-bar--top tab-bar--top-border">
+	  	<label class="tab-bar__item tab-bar--top-border__item">
+			<input ng-model="tab" ng-click="report()" value="day" type="radio">
+			<button class="tab-bar__button tab-bar--top-border__button">
+			  รายวัน
+			</button>
+	  	</label>
+
+	  	<label class="tab-bar__item tab-bar--top-border__item">
+			<input ng-model="tab" ng-click="report()" value="month" type="radio">
+			<button class="tab-bar__button tab-bar--top-border__button">
+		  	รายเดือน
+			</button>
+	  	</label>
+
+	  	<label class="tab-bar__item tab-bar--top-border__item">
+			<input ng-model="tab" ng-click="report()" value="year" type="radio">
+			<button class="tab-bar__button tab-bar--top-border__button">
+			  รายปี
+			</button>
+	  	</label>
+	</div>
+
+	<ons-list ng-repeat="data in datas" style="margin-top: 10px;" modifier="inset">
+		<ons-list-header>
+			<span ng-if="data._id.day && data._id.month && data._id.year">
+				{{data._id.day}}/{{data._id.month}}/{{data._id.year}}
+			</span>
+			<span ng-if="!data._id.day && data._id.month && data._id.year">
+				{{data._id.month}}/{{data._id.year}}
+			</span>
+			<span ng-if="!data._id.day && !data._id.month && data._id.year">
+				{{data._id.year}}
+			</span>
+		</ons-list-header>
+		<ons-list-item>
+			<ons-icon icon="ion-social-bitcoin"></ons-icon>	
+			{{ data.total | number:0 }}
+		</ons-list-item>
+	</ons-list>
+</ons-page>

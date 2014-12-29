@@ -20,20 +20,15 @@
           	</ons-list-item>
         </ons-list>
 
-	     <ons-list class="list ons-list-inner">
-	        <ons-list-header class="list__header ons-list-header-inner">Menu Sell</ons-list-header>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_day.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ยอดขายรายวัน
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_month.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ยอดขายรายเดือน
-	        </ons-list-item>
-	        <ons-list-item modifier="chevron" onclick="myNavigator.pushPage('a_sell_year.html', { animation : 'slide' } )" class="list__item ons-list-item-inner list__item--chevron">
-	          ยอดขายรายปี
-	        </ons-list-item>
-	      </ons-list>
+        <ons-list>
+	  		<ons-list-header>Menu Sell</ons-list-header>
+          	<ons-list-item onclick="myNav.pushPage('admin/pages/sell_report.html', {animation: 'lift'})" 
+          		modifier="tappable chevron">
+          		รายงานการขาย
+          	</ons-list-item>
+        </ons-list>
 
-	     <ons-list>
+	    <ons-list>
 	    	<ons-list-header>Menu News</ons-list-header>
           	<ons-list-item onclick="adminNav.pushPage('admin/pages/condition_rewards.html')" 
           		modifier="tappable chevron">
