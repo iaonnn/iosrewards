@@ -23,7 +23,7 @@ app.controller('AppController', function($scope, $http) {
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	//myNav.resetToPage('admin/index.html', {animation: 'none'})
+	myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
@@ -122,7 +122,6 @@ app.controller('RegController', function($scope, $http) {
         	alert('pw not wrong')
       	}
   	}
-
 })
 
 /* admin : give & condition rewards */
@@ -183,7 +182,6 @@ app.controller('RewardsController', function($scope, $http) {
 		$scope.pSelect = {_id: id, name: name}
 		List.hide()
 	}
-
 })
 
 /* admin : give point */
@@ -229,7 +227,6 @@ app.controller('PointController', function($scope, $http, $filter) {
 			})
 		})
 	}
-
 })
 
 /* admin : report */
@@ -265,5 +262,85 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		})
 	}
 	$scope.listRewards()
+})
 
+/* user : show news */
+app.controller('NewsController', function($scope, $http) {
+	$scope.newslist = function() {
+		$http.get(serverUrl + '/news/list').success(function(data) {
+			$scope.datas = data
+		})
+	}	
+	$scope.newslist()
+})
+
+/* admin : manage news */
+app.controller('NewsManageController', function($scope, $http, Share) {
+
+	$scope.newslist = function() {
+		$http.get(serverUrl + '/news/list').success(function(data) {
+			$scope.datas = data
+		})
+	}	
+	$scope.newslist()
+
+	$scope.save = function() {
+		var data = {
+			title: $scope.title,
+			content: $scope.content,
+			picUrl: $scope.picUrl,
+			date: new Date
+		}
+		console.log(data)
+
+		$http.post(serverUrl + '/news/save', data).success(function(data) {
+			alert(data)
+			adminNav.popPage()
+		})
+	}
+
+	$scope.update = function() {
+		var id = $scope._id
+		var data = {
+			title: $scope.title,
+			content: $scope.content,
+			picUrl: $scope.picUrl,
+			date: new Date
+		}
+		console.log(data)
+
+		$http.post(serverUrl + '/news/update/' + id, data).success(function(data) {
+			alert(data)
+			Share.setId(false)
+			adminNav.popPage()
+		})
+	}
+
+	$scope.delete = function() {
+		var id = $scope._id
+
+		$http.get(serverUrl + '/news/remove/' + id).success(function(data) {
+			alert(data)
+			Share.setId(false)
+			adminNav.popPage()
+		})
+	}
+
+	$scope.editPage = function(id) {
+		Share.setId(id)
+		adminNav.pushPage('admin/pages/news_manage_edit.html')
+  	}
+
+  	if(Share.getId()) {
+  		$http.get(serverUrl + '/news/list/' + Share.getId()).success(function(data) {
+  			$scope._id 		= data._id
+  			$scope.picUrl 	= data.picUrl
+  			$scope.title 	= data.title
+  			$scope.content 	= data.content
+  		})
+  	}
+
+	adminNav.on('postpop', function() {
+		$scope.newslist()
+	})
 })

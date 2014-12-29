@@ -1,25 +1,26 @@
 <ons-navigator>
-	<ons-page>
-
+	<ons-page ng-controller="NewsController">
 		<ons-toolbar>
 			<div class="left"></div>
-			<div class="center">Home</div>
+			<div class="center">ข่าวสารโปรโมชั่น</div>
 			<div class="right"></div>
 		</ons-toolbar> 
 
-		<ons-list style="margin: -1px 0;"> 
-			<ons-list-item modifier="chevron" class="item" ng-repeat="i in [1,2,3,4,5]" ng-click="doSomething()"> 
+		<ons-list modifier="inset"> 
+			<ons-list-item ng-repeat="data in datas" modifier="" class="item"> 
 				<ons-row> 
 					<ons-col width="60px">
-						<div class="item-thum"></div>
+						<img src="http://localhost:4400{{data.picUrl}}" class="to-image">
 					</ons-col> 
 					<ons-col> 
 						<header>
-							<span class="item-title">Rorem Ipsum</span> 
-							<span class="item-label">5h</span>
+							<span class="item-title">{{data.title}}</span> 
+							<span class="item-label">
+								{{data.date | date:'dd/MM/yyyy HH:mm:ss'}}
+							</span>
 						</header>
 						<p class="item-desc">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.
+							{{data.content}}
 						</p>
 					</ons-col> 
 				</ons-row>
