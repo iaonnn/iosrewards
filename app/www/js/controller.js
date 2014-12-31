@@ -18,12 +18,20 @@ app.controller('AppController', function($scope, $http) {
 	$scope.test = function() {
 		alert('click')
 	}
+
+	$scope.rewardslist = function() {
+		$http.get(serverUrl + '/rewards/list').success(function(data) {
+			ons.notification.alert({
+				message: 'เมื่อซื้อครบ '+ data.total +' บาทจะได้รับ '+ data.point +' แต้ม'
+			})
+		})
+	}
 })
 
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('user/index.html', {animation: 'none'})
+	//myNav.resetToPage('user/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
