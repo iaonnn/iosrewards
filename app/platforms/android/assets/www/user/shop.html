@@ -1,0 +1,61 @@
+<ons-page modifier="shop-details">
+	<ons-toolbar modifier="transparent">
+		<div class="left">
+			<ons-toolbar-button onclick="myNav.popPage()">
+				<ons-icon icon="ion-arrow-left-c" 
+					style="color: black; font-size: 28px;" 
+					fixed-width="false">
+				</ons-icon>
+			</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<div class="card" style="background-image: url(img/moremilk.jpg);">
+		<div class="card-name">More' Milk</div>
+		<div class="card-desc">
+			MILK * COFFE MILK * JUICE * SMOOTHIE * TOAST
+			<br>Open until 18:00 - 23:30 AM
+		</div>
+	</div>
+
+	<ons-list style="border-top: none">
+		<ons-list-item style="line-height: 1; padding: 0;">
+			<ons-row class="action">
+				<ons-col class="action-col">
+				  	<div class="action-icon">
+				  		<ons-icon icon="ion-share"></ons-icon>
+				  	</div>
+				  	<div class="action-label">Share</div>
+				</ons-col>
+
+				<ons-col class="action-col">
+				  	<div class="action-icon">
+				  		<ons-icon icon="ion-compose"></ons-icon>
+				  	</div>
+				  	<div class="action-label">Check In</div>
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list>
+
+	<ons-list style="margin-top: 12px;">
+		<ons-list-item onclick="myNav.pushPage('user/map.html', {animation: 'slide'})" modifier="chevron">
+			<div class="prop-desc">
+			  	<ons-icon icon="fa-map-marker"></ons-icon>
+			  	หลัง มทส. ประตู 4
+			</div>
+		</ons-list-item>
+		<ons-list-item>
+			<div class="prop-desc">
+			  	<ons-icon icon="fa-mobile"></ons-icon>
+			 	080 333 4012
+			</div>
+		</ons-list-item>
+		<ons-list-item>
+			<div class="prop-desc">
+			  	<ons-icon icon="fa-book"></ons-icon>
+			  	ความสุขที่มากกว่าการดื่มนม
+			</div>
+		</ons-list-item>
+	</ons-list>
+</ons-page>

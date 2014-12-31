@@ -1,4 +1,4 @@
-<ons-page>
+<ons-page ng-controller="AppController">
 	<ons-toolbar>
 		<div class="center">
 	    	<img src="img/MoreRewards-tiny.png" style="margin-top: 8px;">
@@ -13,7 +13,7 @@
 	<ons-row>
 		<ons-col width="50%" style="border-right: 3px dashed blue;">
 			<div align="center" style="padding: 10px;">
-				<div class="user-menu">
+				<div class="user-menu" onclick="myNav.pushPage('user/settings.html', {animation: 'none'})">
 					<ons-icon icon="ion-card" size="3x" 
 						style="color: white; margin: 5px auto 5px;"></ons-icon>
 					<br>My Card
@@ -53,6 +53,27 @@
 	<ons-row>
 		<ons-col width="50%" align="center" style="border-right: 3px dashed blue;">
 			<div align="center" style="padding: 10px;">
+				<div class="user-menu" onclick="myNav.pushPage('user/shop.html')">
+					<ons-icon icon="ion-home" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>ข้อมูลร้าน
+				</div>
+			</div>
+		</ons-col>
+		<ons-col width="50%" align="center">
+			<div align="center" style="padding: 10px;">
+				<div class="user-menu" ng-click="rewardslist()">
+					<ons-icon icon="ion-help-circled" size="3x" 
+						style="color: white; margin: 5px auto 5px;"></ons-icon>
+					<br>เงื่นไขสะสมแต้ม
+				</div>
+			</div>
+		</ons-col>
+	</ons-row>
+	<!--
+	<ons-row>
+		<ons-col width="50%" align="center" style="border-right: 3px dashed blue;">
+			<div align="center" style="padding: 10px;">
 				<div class="user-menu" style="background-image: url('img/icon-fb.jpg'); background-position: center;">
 					<ons-icon icon="fa-facebook-square" size="3x" 
 						style="color: white; margin: 5px auto 5px;"></ons-icon>
@@ -70,5 +91,5 @@
 			</div>
 		</ons-col>
 	</ons-row>
-
+	-->
 </ons-page>
