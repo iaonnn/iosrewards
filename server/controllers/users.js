@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 var User = require('../models/user')
+var Userrewards = require('../models/userrewards')
+
 module.exports.controller = function(app) {
 
     app.get('/login/:tel', function(req, res) {
@@ -45,11 +47,18 @@ module.exports.controller = function(app) {
         })
     })
 
-    app.post('/user/update/:tel', function(req, res) {        
+    app.post('/user/update/:tel', function(req, res) {  
+        var name = req.body.name + ' ' + req.body.lastname      
         User.update({tel: req.params.tel}, {$set: req.body}, function(err) {
             if (err) return handleError(err)
-            console.log('User %s : update', req.params.tel)
-            res.end('Success')
+            Userrewards.findOne({_id : req.params.tel}, function(err, userrewards) {
+                userrewards.name = name
+                userrewards.save(function(err) {
+                    console.log(name)
+                    console.log('User %s : update', req.params.tel)
+                    res.end('Success')
+                })
+            })
         })
     })
 

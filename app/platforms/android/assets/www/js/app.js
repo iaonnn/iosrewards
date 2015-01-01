@@ -16,7 +16,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 })
 
 app.factory('Share', function($http) {
-	var tel = false
+	var tel = '222'
 	var id = false
 
 	return {

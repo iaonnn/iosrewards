@@ -1,0 +1,87 @@
+<ons-page ng-controller="UserController" style="background-color: #33393c;">
+	<ons-toolbar>
+		<div class="center">ข้อมูลของฉัน</div>
+	  	<div class="right">
+	  		<ons-toolbar-button onclick="menu.setMainPage('user/settings.html')">
+	 			close
+	 		</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<ons-list modifier="inset" style="margin-top: 10px;">
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">ชื่อ</ons-col>
+				<ons-col class="profile-detail">
+					<input ng-model="user.name" type="text" 
+					class="text-input text-input--transparent" 
+					style="width: 100%; text-align: right;">
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">นามสกุล</ons-col>
+				<ons-col class="profile-detail">
+					<input ng-model="user.lastname" type="text" 
+					class="text-input text-input--transparent" 
+					style="width: 100%; text-align: right;">
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">เบอร์โทร</ons-col>
+				<ons-col class="profile-detail">
+					{{user.tel}}
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">วันเกิด</ons-col>
+				<ons-col class="profile-detail">
+					<input type="date" ng-model="date"
+					class="text-input text-input--transparent" 
+					style="width: 100%; text-align: right;" 
+					min="1980-01-01" max="2000-12-31" required />
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">เพศ</ons-col>
+				<ons-col class="profile-detail">
+					<div style="float: right; padding-right: 16px;">
+						<label class="radio-button">
+						  <input type="radio" name="level" ng-model="user.gender" value="Male">
+						  <div class="radio-button__checkmark"></div>
+						  ชาย
+						</label>
+						<label class="radio-button">
+						  <input type="radio" name="level" ng-model="user.gender" value="Famale">
+						  <div class="radio-button__checkmark"></div>
+						  หญิง
+						</label>
+				  	</div>
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">อีเมลล์</ons-col>
+				<ons-col class="profile-detail">
+					<input ng-model="user.email" type="text" 
+					class="text-input text-input--transparent" 
+					style="width: 100%; text-align: right;">
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list>
+
+	<div style="margin: 10px;">
+		<ons-button ng-click="edit()" modifier="large">
+			บันทึก
+		</ons-button>
+	</div>
+</ons-page>
