@@ -8,7 +8,12 @@
 	    </div>
 	</ons-toolbar>
 
-	<ui-gmap-google-map center='map.center' zoom='map.zoom' options='marker.options'>
-		<ui-gmap-marker click='test()' coords='map.center' options='marker.options' idKey='0'></ui-gmap-marker>
+	<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+		<ui-gmap-marker click='test()' coords='{latitude: 14.9047824,longitude: 102.0107774}' 
+			options='marker.options' idKey='0'>
+			<ui-gmap-window show="true" options="windowOptions" closeClick="closeClick()">
+                <div width="200px">Moremilk' SUT</div>
+            </ui-gmap-window>
+		</ui-gmap-marker>
 	</ui-gmap-google-map>
 </ons-page>

@@ -6,7 +6,8 @@ app.controller('AppController', function($scope, $http) {
 			latitude: 14.9047824,
 			longitude: 102.0107774
 		}, 
-		zoom: 13,
+		zoom: 15,
+		draggable: true
 	}
 
 	$scope.marker = {
@@ -18,6 +19,18 @@ app.controller('AppController', function($scope, $http) {
 	$scope.test = function() {
 		alert('click')
 	}
+
+	$scope.windowOptions = {
+        visible: true
+    };
+
+    $scope.onClick = function() {
+        $scope.windowOptions.visible = !$scope.windowOptions.visible
+    }
+
+    $scope.closeClick = function() {
+        $scope.windowOptions.visible = false
+    }
 
 	$scope.rewardslist = function() {
 		$http.get(serverUrl + '/rewards/list').success(function(data) {
@@ -31,7 +44,7 @@ app.controller('AppController', function($scope, $http) {
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	//myNav.resetToPage('user/index.html', {animation: 'none'})
+	myNav.resetToPage('user/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
