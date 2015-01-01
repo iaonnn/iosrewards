@@ -262,7 +262,6 @@ app.controller('ReportController', function($scope, $http) {
 
 /* user : data of user */
 app.controller('UserController', function($scope, $http, $filter, Share) {
-
 	$scope.listRewards = function() {
 		$http.get(serverUrl + '/userrewards/' + Share.getTel()).success(function(data) {
 			$scope.userrewards = data
@@ -270,6 +269,32 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		})
 	}
 	$scope.listRewards()
+
+	$scope.listuser = function() {
+		$http.get(serverUrl + '/user/list/' + Share.getTel()).success(function(data) {
+			$scope.user = data
+			$scope.date = new Date($filter('date')(data.birthday, 'longDate'))
+		})
+	}
+	$scope.listuser()
+
+	$scope.edit = function() {
+		var tel = Share.getTel()
+		var data = {
+			'name'    	: $scope.user.name,
+          	'lastname'  : $scope.user.lastname,
+          	'tel'     	: $scope.user.tel,
+          	'birthday'  : $scope.date,
+          	'gender'  	: $scope.user.gender,
+          	'email'   	: $scope.user.email,			
+		}
+		console.log(data)
+
+		$http.post(serverUrl + '/user/update/' + tel, data).success(function(data) {
+			//alert(data)
+			menu.setMainPage('user/settings.html')
+		})
+	}
 })
 
 /* user : show news */

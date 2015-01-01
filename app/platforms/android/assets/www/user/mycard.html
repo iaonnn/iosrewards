@@ -1,0 +1,39 @@
+<ons-page ng-controller="UserController" style="background-color: #33393c;">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button>กลับ</ons-back-button>
+		</div>
+		<div class="center">My Card</div>
+	  	<div class="right">
+	  		<ons-toolbar-button onclick="menu.toggle()">
+	 			<ons-icon icon="ion-gear-a"></ons-icon>
+	 		</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+
+	<div class="profile-card">
+        <img src="img/moremilk.jpg" class="profile-image">
+        <div class="profile-name">
+        	{{userrewards.name}}
+        </div>
+        <div class="profile-id">
+        	โทร : <b>{{userrewards._id}}</b>
+        </div>
+        <div class="profile-desc">
+        	แต้มปัจจุบัน : <b>{{userrewards.points}}</b> แต้ม
+        </div>
+        <div class="profile-desc">
+        	ล่าสุด : {{update}}
+        </div>
+        <div style="margin-top: 10px;">
+			<ons-button onclick="modal.show()">
+				<ons-icon icon="fa-qrcode"></ons-icon>
+				QR CODE
+			</ons-button>
+        </div>
+    </div>
+</ons-page>
+
+<ons-modal var="modal">
+	<img src="img/qrcode.png" onclick="modal.hide()">
+</ons-modal>

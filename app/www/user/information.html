@@ -1,51 +1,54 @@
-<ons-page ng-controller="UserController">
+<ons-page ng-controller="UserController" style="background-color: #33393c;">
 	<ons-toolbar>
-		<div class="left">
-	 		<ons-toolbar-button onclick="menu.toggle()">
-	 			<ons-icon icon="ion-navicon-round"></ons-icon>
-	 		</ons-toolbar-button>
-		</div>
+		<div class="center">ข้อมูลของฉัน</div>
 	  	<div class="right">
-			<ons-toolbar-button onclick="myNav.popPage()">
-				ปิด
-			</ons-toolbar-button>
+	  		<ons-toolbar-button onclick="menu.setMainPage('user/settings.html')">
+	 			close
+	 		</ons-toolbar-button>
 		</div>
 	</ons-toolbar>
 
-	<div>
-		<ons-row>
-			<ons-col width="100px">Name</ons-col>
-			<ons-col>{{userrewards.name}}</ons-col>
-		</ons-row>
-		<ons-row>
-			<ons-col width="100px">Tel</ons-col>
-			<ons-col>{{userrewards._id}}</ons-col>
-		</ons-row>
-		<ons-row>
-			<ons-col width="100px">Point</ons-col>
-			<ons-col>{{userrewards.points}}</ons-col>
-		</ons-row>
-		<ons-row>
-			<ons-col width="100px">Update</ons-col>
-			<ons-col>{{update}}</ons-col>
-		</ons-row>
-		<ons-row>
-			<ons-col style="padding: 10px;">
-				<ons-button modifier="large" onclick="modal.show()">
-					<ons-icon icon="fa-qrcode"></ons-icon>
-					Show QRCode
-				</ons-button>
-			</ons-col>
-		</ons-row>
-	</div>
+	<ons-list modifier="inset" style="margin-top: 10px;">
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">ชื่อ นามสกุล</ons-col>
+				<ons-col class="profile-detail">
+					{{user.name}} {{user.lastname}}
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">เบอร์โทร</ons-col>
+				<ons-col class="profile-detail">
+					{{user.tel}}
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">วันเกิด</ons-col>
+				<ons-col class="profile-detail">
+					{{user.birthday | date:'dd/MM/yyyy'}}
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">เพศ</ons-col>
+				<ons-col class="profile-detail">
+					<span ng-if="user.gender == 'Male'">ชาย</span>
+					<span ng-if="user.gender != 'Male'">หญิง</span>
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+		<ons-list-item>
+			<ons-row>
+				<ons-col width="100px">อีเมลล์</ons-col>
+				<ons-col class="profile-detail">
+					{{user.email}}
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list>
 </ons-page>
-
-<ons-modal var="modal">
-	<img src="img/qrcode.png" onclick="modal.hide()">
-</ons-modal>
-
-<style>
-	ons-row {
-		padding: 20px;	
-	}
-</style>
