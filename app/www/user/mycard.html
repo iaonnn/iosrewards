@@ -26,7 +26,7 @@
         	ล่าสุด : {{update}}
         </div>
         <div style="margin-top: 10px;">
-			<ons-button onclick="modal.show()">
+			<ons-button ng-click="genQRCode()">
 				<ons-icon icon="fa-qrcode"></ons-icon>
 				QR CODE
 			</ons-button>
@@ -35,5 +35,5 @@
 </ons-page>
 
 <ons-modal var="modal">
-	<img src="img/qrcode.png" onclick="modal.hide()">
+	<div id="qrcode" align="center" onclick="modal.hide()"></div>
 </ons-modal>
