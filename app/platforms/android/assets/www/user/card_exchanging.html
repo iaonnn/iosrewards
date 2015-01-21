@@ -1,0 +1,57 @@
+<ons-page ng-controller="UserController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button></ons-back-button>
+		</div>
+	</ons-toolbar>
+
+	<ons-list> 
+		<ons-list-item class="item" style="background-image: url('img/bg-user.jpg');"> 
+			<ons-row> 
+				<ons-col width="40%">
+					<img class="mycard" />
+				</ons-col> 
+				<ons-col width="50%">
+					<ons-row style="margin: 20px auto auto 15px; color: white;">
+						<ons-col>
+							คะแนนปัจจุบัน : 
+							<font color="red"><b>{{ 10 }}</b></font>
+						</ons-col>
+					</ons-row>
+					<ons-row style="margin: 10px auto auto 15px; color: white;">
+						<ons-col ng-if="false">
+							สามารถแลกรับได้ : 
+							<font color="red"><b>{{ 1 }}</b></font>
+						</ons-col>
+						<ons-col ng-if="true">
+							ไม่สามารถแลกรับบัตรกำนัลได้
+						</ons-col>
+					</ons-row>
+				</ons-col> 
+			</ons-row>
+		</ons-list-item>
+
+		<ons-list-item ng-repeat="i in [1,2,3]" class="item" style="border-bottom: 2px dashed gray;">
+			<ons-row> 
+				<ons-col width="60px">
+					<img src="" height="60px" width="100%">
+				</ons-col> 
+				<ons-col> 
+					<ons-row style="padding-left: 15px;">
+						<ons-col>
+							<b>{{ i+10 }} Points</b>
+						</ons-col>
+					</ons-row>
+					<ons-row style="padding-left: 15px; margin-top: 10px;">
+						<ons-col>
+							<font color="gray" size="2"> 
+								รับฟรี ...
+							</font>
+						</ons-col>
+					</ons-row>
+				</ons-col> 
+			</ons-row>
+		</ons-list-item>
+	</ons-list> 
+
+</ons-page>

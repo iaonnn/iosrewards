@@ -9,7 +9,23 @@
 		<div class="right"></div>
 	</ons-toolbar> 
 
-	<ons-list modifier="inset"> 
+	<ons-list> 
+		<ons-list-item class="item" style="background-image: url('img/bg-user.jpg');"> 
+			<ons-row> 
+				<ons-col width="40%">
+					<img class="mycard" />
+				</ons-col> 
+				<ons-col width="50%">
+					<ons-row style="margin: 30px auto auto 15px; color: white;">
+						<ons-col>
+							ข้อความ : 
+							<font color="red"><b>{{ total }}</b></font>
+						</ons-col>
+					</ons-row>
+				</ons-col> 
+			</ons-row>
+		</ons-list-item>
+
 		<ons-list-item ng-repeat="data in datas" modifier="" class="item"> 
 			<ons-row> 
 				<ons-col width="60px">

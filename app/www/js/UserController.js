@@ -5,6 +5,7 @@ app.controller('AppController', function($scope, $http) {
 	$scope.rewardslist = function() {
 		$http.get(serverUrl + '/rewards/list').success(function(data) {
 			ons.notification.alert({
+				title: 'เงื่อนไขการสะสมแต้ม',
 				message: 'เมื่อซื้อครบ '+ data.total +' บาทจะได้รับ '+ data.point +' แต้ม'
 			})
 		})
@@ -105,6 +106,7 @@ app.controller('NewsController', function($scope, $http) {
 	$scope.newslist = function() {
 		$http.get(serverUrl + '/news/list').success(function(data) {
 			$scope.datas = data
+			$scope.total = data.length
 		})
 	}	
 	$scope.newslist()

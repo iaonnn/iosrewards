@@ -1,0 +1,55 @@
+<ons-page ng-controller="UserController">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button></ons-back-button>
+		</div>
+	</ons-toolbar>
+
+	<ons-list> 
+		<ons-list-item class="item" style="background-image: url('img/bg-user.jpg');"> 
+			<ons-row> 
+				<ons-col width="40%">
+					<img class="mycard" />
+				</ons-col> 
+				<ons-col width="50%">
+					<ons-row style="margin: 20px auto auto 15px; color: white;">
+						<ons-col>
+							คะแนนปัจจุบัน : 
+							<font color="red"><b>{{ 10 }}</b></font>
+						</ons-col>
+					</ons-row>
+					<ons-row style="margin: 10px auto auto 15px; color: white;">
+						<ons-col>
+							ID : 
+							<font color="red"><b>{{ 03512344 }}</b></font>
+						</ons-col>
+					</ons-row>
+				</ons-col> 
+			</ons-row>
+		</ons-list-item>
+
+		<ons-list-item ng-repeat="i in [1,2,3,4,5]" class="item" style="border-bottom: 2px dashed gray;">
+			<ons-row> 
+				<ons-col> 
+					รายการที่ {{ i }}
+				</ons-col> 
+			</ons-row>
+			<ons-row style="margin-top: 5px;"> 
+				<ons-col ng-if="i%2==1">
+					<ons-icon icon="fa-plus-square" style="color: green"></ons-icon> 
+					{{ i + 5 }}
+				</ons-col> 
+				<ons-col ng-if="i%2==0">
+					<ons-icon icon="fa-minus-square" style="color: red"></ons-icon> 
+					{{ -(i + 5) }}
+				</ons-col> 
+				<ons-col>
+					<font color="gray" size="2"> 
+						2015-01-01 12:00:00
+					</font>
+				</ons-col>
+			</ons-row>
+		</ons-list-item>
+	</ons-list> 
+
+</ons-page>

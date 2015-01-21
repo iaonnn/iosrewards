@@ -33,22 +33,40 @@
 	</div>
 
 	<ons-row style="margin-top: 10px; padding: 20px;">
-		<ons-col>
-			<ons-button ng-click="myNav.pushPage('user/shop.html')">
-				<ons-icon icon="fa-home" size="35px"></ons-icon>
-			</ons-button>
-			<ons-button ng-click="myNav.pushPage('user/map.html')">
-				<ons-icon icon="fa-map-marker" size="35px"></ons-icon>
-			</ons-button>
-			<br /><br />
-			<ons-button>
-				<ons-icon icon="fa-facebook-square" size="35px"></ons-icon>
-			</ons-button>
+		<ons-col width="50%">
+			<ons-row>
+				<ons-col width="50%">
+					<div class="icon-mycard" style="background-color: brown;" ng-click="myNav.pushPage('user/shop.html')">
+						<ons-icon icon="fa-home" size="35px"></ons-icon>
+					</div>
+				</ons-col>
+
+				<ons-col width="50%">
+					<div class="icon-mycard" style="background-color: green;" ng-click="myNav.pushPage('user/map.html')">
+						<ons-icon icon="fa-map-marker" size="35px"></ons-icon>
+					</div>
+				</ons-col>
+			</ons-row>
+			<ons-row style="margin-top: 15px;">
+				<ons-col width="50%" ng-controller="AppController">
+					<div class="icon-mycard" style="background-color: orange;" ng-click="rewardslist()">
+						<ons-icon icon="ion-help" size="35px"></ons-icon>
+					</div>
+				</ons-col>
+
+				<ons-col width="50%">
+					<div class="icon-mycard" style="background-color: blue;" ng-click="">
+						<ons-icon icon="fa-facebook-square" size="35px"></ons-icon>
+					</div>
+				</ons-col>
+			</ons-row>
 		</ons-col>
-		<ons-col width="100px">
-			<ons-button ng-click="myNav.pushPage('user/qrcode.html')">
+
+		<ons-col width="50%" align="right">
+			<div class="icon-mycard-qrcode" style="background-color: black;" ng-click="myNav.pushPage('user/qrcode.html')">
 				<ons-icon icon="fa-qrcode" size="80px"></ons-icon>
-			</ons-button>
+			</div>
 		</ons-col>
 	</ons-row>
+
 </ons-page>
