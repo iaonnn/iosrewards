@@ -45,6 +45,9 @@ app.controller('RegController', function($scope, $http) {
 
 /* user : data of user */
 app.controller('UserController', function($scope, $http, $filter, Share) {
+	
+	$scope.user = Share.getUser()
+
 	$scope.listRewards = function() {
 		$http.get(serverUrl + '/userrewards/' + Share.getTel()).success(function(data) {
 			$scope.userrewards = data
@@ -89,12 +92,11 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		    text : Share.getTel(),
 		    width: 150,
 		    height: 150,
-		    colorDark : "white",
-		    colorLight : "black"
+		    colorDark : "black",
+		    colorLight : "white"
 		}
 		//cretate qrcode
   		new QRCode(div_qrcode, options);
-  		modal.show()
 	}
 })
 

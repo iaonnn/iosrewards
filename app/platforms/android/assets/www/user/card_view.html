@@ -1,0 +1,54 @@
+<ons-page ng-controller="UserController" style="background-image: url('img/bg-user.jpg');">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button></ons-back-button>
+		</div>
+	</ons-toolbar>
+
+	<ons-row style="background-color: transparent; padding: 10px;">
+		<div style="border-radius: 10px; background-image: url('img/bg.jpg'); background-size: cover; width: 100%;">
+			<ons-row style="margin-bottom: 50px; background-color: black; opacity: 0.7;" >
+				<ons-col></ons-col>
+				<ons-col width="200px" class="font-card-point">
+					<span>{{ userrewards.points }}</span> คะแนน
+				</ons-col>
+			</ons-row>
+			<ons-row style="padding: 10px;">
+				<ons-col width="200px" class="font-card-detail">
+					{{ userrewards.name }}
+				</ons-col>
+				<ons-col></ons-col>
+			</ons-row>
+			<ons-row style="padding: 10px;">
+				<ons-col width="200px" class="font-card-detail">
+					{{ userrewards._id }}
+				</ons-col>
+				<ons-col></ons-col>
+			</ons-row>
+		</div>
+	</ons-row>
+
+	<div align="center" style="color: gray;">
+		<b>Updates : {{ update }}</b>
+	</div>
+
+	<ons-row style="margin-top: 10px; padding: 20px;">
+		<ons-col>
+			<ons-button ng-click="myNav.pushPage('user/shop.html')">
+				<ons-icon icon="fa-home" size="35px"></ons-icon>
+			</ons-button>
+			<ons-button ng-click="myNav.pushPage('user/map.html')">
+				<ons-icon icon="fa-map-marker" size="35px"></ons-icon>
+			</ons-button>
+			<br /><br />
+			<ons-button>
+				<ons-icon icon="fa-facebook-square" size="35px"></ons-icon>
+			</ons-button>
+		</ons-col>
+		<ons-col width="100px">
+			<ons-button ng-click="myNav.pushPage('user/qrcode.html')">
+				<ons-icon icon="fa-qrcode" size="80px"></ons-icon>
+			</ons-button>
+		</ons-col>
+	</ons-row>
+</ons-page>

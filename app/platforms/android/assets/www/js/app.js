@@ -18,6 +18,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 app.factory('Share', function($http) {
 	var tel = '222'
 	var id = false
+	var user
 
 	return {
 		getTel : function() {
@@ -31,6 +32,12 @@ app.factory('Share', function($http) {
 		},
 		setId : function(newId) {
 			id = newId
+		},
+		setUser : function(val) {
+			user = val
+		},
+		getUser : function() {
+			return user
 		}
 	}
 })

@@ -3,7 +3,7 @@ var serverUrl = 'http://localhost:2222'
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('user/index.html', {animation: 'none'})
+	myNav.resetToPage('user/index-old.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
@@ -11,6 +11,7 @@ app.controller('LoginController', function($scope, $http, Share) {
 		$http.get(serverUrl + '/login/' + tel).success(function(user) {
 			if(user != null) {
 				Share.setTel(user.tel)
+				Share.setUser(user)
 				if(user.type == 'ADMIN')
 					myNav.resetToPage('admin/index.html', {animation: 'lift'})
 				else
