@@ -35,6 +35,7 @@ module.exports.controller = function(app) {
 					})
 				} else {
 					userrewards.points += obj.point
+					userrewards.update = new Date
 				}
 				userrewards.save(function(err) {
 					res.end('sellpoint save')
