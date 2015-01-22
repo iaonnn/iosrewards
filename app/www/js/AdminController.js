@@ -3,7 +3,7 @@ var serverUrl = 'http://localhost:2222'
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('user/index-old.html', {animation: 'none'})
+	//myNav.resetToPage('user/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel

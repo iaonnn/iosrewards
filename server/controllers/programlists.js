@@ -5,7 +5,7 @@ module.exports.controller = function(app) {
 
 	app.get('/programlist', function(req, res) {
 		var obj = new Programlist({
-			_id: 'P03',
+			_id: 'P02',
 	      	name: 'ไมโลนมสด ปั่น',
 	      	cost: 25,
 		})

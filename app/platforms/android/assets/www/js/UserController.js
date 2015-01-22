@@ -55,7 +55,7 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 			$scope.update = $filter('date')(data.update, 'yyyy-MM-dd HH:mm:ss')
 		})
 	}
-	$scope.listRewards()
+	$scope.listRewards()	
 
 	$scope.listuser = function() {
 		$http.get(serverUrl + '/user/list/' + Share.getTel()).success(function(data) {
@@ -98,6 +98,62 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		}
 		//cretate qrcode
   		new QRCode(div_qrcode, options);
+	}
+
+	/* function for page 'user/card_exchanging.html' */
+	$scope.total = 0
+	$scope.listExchanging = function() {
+		console.log('listExchanging Active')
+		$http.get(serverUrl + '/exchanging/list').success(function(data) {
+			$scope.exchangings = data
+
+			var currentPoints = $scope.userrewards.points
+			console.log(currentPoints)
+			for(var i = 0; i < data.length; i++) {
+				if(currentPoints >= data[i].points) {
+					$scope.total += 1;
+				}
+			}
+			console.log($scope.total)
+		})
+	}
+
+	$scope.exchange = function(id) {
+		ons.notification.confirm({
+			message: 'ID : ' + id,
+			callback: function(idx) {
+				if(idx == 0) {
+					console.log('Cencel')
+				} else {
+					console.log('OK')
+					var data = {
+						_exchangingId: id,
+					    tel: Share.getTel()
+					}
+					console.log(angular.toJson(data))
+					$http.post(serverUrl + '/voucher/save', data).success(function(data) {
+						console.log(data)
+					})
+				}
+			}
+		})
+	}
+
+	/* function for page 'user/card_vouchers.html' */
+	$scope.exchangingNew = 0
+	$scope.exchangingUsed = 0
+	$scope.listVouchers = function() {
+		console.log('listVouchers Active')
+		$http.get(serverUrl + '/voucher/list/' + Share.getTel()).success(function(data) {
+			$scope.vouchers = data
+
+			for(var i = 0; i < data.length; i++) {
+				if(data[i].status == true) {
+					$scope.exchangingUsed += 1;
+				}
+			}
+			$scope.exchangingNew = data.length - parseInt($scope.exchangingUsed)
+		})
 	}
 })
 

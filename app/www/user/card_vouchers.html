@@ -1,4 +1,4 @@
-<ons-page ng-controller="UserController">
+<ons-page ng-controller="UserController" ng-init="listVouchers()">
 	<ons-toolbar>
 		<div class="left">
 			<ons-back-button></ons-back-button>
@@ -15,20 +15,20 @@
 					<ons-row style="margin: 20px auto auto 15px; color: white;">
 						<ons-col>
 							ใหม่ : 
-							<font color="red"><b>{{ 9 }}</b></font>
+							<font color="red"><b>{{ exchangingNew }}</b></font>
 						</ons-col>
 					</ons-row>
 					<ons-row style="margin: 10px auto auto 15px; color: white;">
 						<ons-col>
 							ที่ใช้แล้ว : 
-							<font color="red"><b>{{ 99 }}</b></font>
+							<font color="red"><b>{{ exchangingUsed }}</b></font>
 						</ons-col>
 					</ons-row>
 				</ons-col> 
 			</ons-row>
 		</ons-list-item>
 
-		<ons-list-item ng-repeat="i in [1,2,3]" class="item" style="border-bottom: 2px dashed gray;">
+		<ons-list-item ng-repeat="voucher in vouchers" class="item" style="border-bottom: 2px dashed gray;">
 			<ons-row> 
 				<ons-col width="60px">
 					<img src="" height="60px" width="100%">
@@ -36,19 +36,19 @@
 				<ons-col> 
 					<ons-row style="padding-left: 15px;">
 						<ons-col>
-							<b>ccccccccccc</b>
+							<b>{{ voucher._exchangingId.detail }}</b>
 						</ons-col>
 					</ons-row>
 					<ons-row style="padding-left: 15px; margin-top: 10px;">
 						<ons-col>
 							<font color="red" size="2"> 
-								Expire : {{ '2015-06-04' }}
+								Expire : {{ voucher._exchangingId.expire | date:'yyyy-MM-dd' }}
 							</font>
 						</ons-col>
 					</ons-row>
 				</ons-col> 
-				<ons-col ng-if="i%2==1" width="50px">
-					<ons-icon icon="fa-ban" size="50px"></ons-icon>
+				<ons-col ng-if="voucher.status" width="50px">
+					<ons-icon icon="fa-check" size="50px" style="color: green;">
 				</ons-col>
 			</ons-row>
 		</ons-list-item>
