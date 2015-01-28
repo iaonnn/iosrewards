@@ -43,7 +43,7 @@ module.exports.controller = function(app) {
 			})
 		})
 	})
-
+	
 	app.get('/sellpoint/list', function(req, res) {
 		Sellpoint.find()
 		.sort('-date')

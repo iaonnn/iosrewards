@@ -3,6 +3,11 @@
 		<div class="left">
 			<ons-back-button></ons-back-button>
 		</div>
+		<div class="right">
+			<ons-toolbar-button ng-click="myNav.resetToPage('index.html')">
+				<ons-icon icon="ion-log-out"></ons-icon>
+			</ons-toolbar-button>
+		</div>
 	</ons-toolbar>
 
 	<ons-row style="background-color: transparent; padding: 10px;">
@@ -10,18 +15,18 @@
 			<ons-row style="margin-bottom: 50px; background-color: black; opacity: 0.7;" >
 				<ons-col></ons-col>
 				<ons-col width="200px" class="font-card-point">
-					<span>{{ userrewards.points }}</span> คะแนน
+					<span>{{ userlog.points }}</span> คะแนน
 				</ons-col>
 			</ons-row>
 			<ons-row style="padding: 10px;">
 				<ons-col width="200px" class="font-card-detail">
-					{{ userrewards.name }}
+					{{ user.name + ' ' + user.lastname }}
 				</ons-col>
 				<ons-col></ons-col>
 			</ons-row>
 			<ons-row style="padding: 10px;">
 				<ons-col width="200px" class="font-card-detail">
-					{{ userrewards._id }}
+					{{ user.tel }}
 				</ons-col>
 				<ons-col></ons-col>
 			</ons-row>

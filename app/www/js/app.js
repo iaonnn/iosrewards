@@ -1,5 +1,8 @@
 var app = angular.module('app', ['onsen', 'uiGmapgoogle-maps'])
 
+//var serverUrl = 'https://myapp-ronsc.rhcloud.com'
+var serverUrl = 'http://localhost:2222'
+
 app.config(function($sceDelegateProvider) {
    $sceDelegateProvider.resourceUrlWhitelist([
      // Allow same origin resource loads.
