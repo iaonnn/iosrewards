@@ -1,10 +1,12 @@
 <ons-page ng-controller="UserController" ng-init="listVouchers()">
+	<!--
 	<ons-toolbar>
 		<div class="left">
 			<ons-back-button></ons-back-button>
 		</div>
 	</ons-toolbar>
-
+	-->
+	
 	<ons-list> 
 		<ons-list-item class="item" style="background-image: url('img/bg-user.jpg');"> 
 			<ons-row> 
@@ -28,7 +30,7 @@
 			</ons-row>
 		</ons-list-item>
 
-		<ons-list-item ng-repeat="voucher in vouchers" class="item" style="border-bottom: 2px dashed gray;">
+		<ons-list-item ng-repeat="voucher in vouchers" ng-click="getVoucher(voucher.status, voucher._id)" modifier="tappable" class="item" style="border-bottom: 2px dashed gray;">
 			<ons-row> 
 				<ons-col width="60px">
 					<img src="" height="60px" width="100%">
@@ -53,5 +55,4 @@
 			</ons-row>
 		</ons-list-item>
 	</ons-list> 
-
 </ons-page>

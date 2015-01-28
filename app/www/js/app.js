@@ -21,6 +21,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 app.factory('Share', function($http) {
 	var tel = '222'
 	var id = false
+	var qrcode = false
 	var user
 
 	return {
@@ -41,6 +42,12 @@ app.factory('Share', function($http) {
 		},
 		getUser : function() {
 			return user
+		},
+		setQrCode : function(code) {
+			qrcode = code
+		},
+		getQrCode : function() {
+			return qrcode
 		}
 	}
 })
