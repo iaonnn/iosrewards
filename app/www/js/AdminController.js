@@ -1,5 +1,3 @@
-var serverUrl = 'http://localhost:2222'
-
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
@@ -7,8 +5,10 @@ app.controller('LoginController', function($scope, $http, Share) {
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
+		tel = Share.getTel()
 
 		$http.get(serverUrl + '/login/' + tel).success(function(user) {
+			console.log(user)
 			if(user != null) {
 				Share.setTel(user.tel)
 				Share.setUser(user)
@@ -21,6 +21,7 @@ app.controller('LoginController', function($scope, $http, Share) {
 			}
 		})
 	}
+	$scope.checklogin()
 })
 
 /* admin : Create Update User */
@@ -167,12 +168,25 @@ app.controller('PointController', function($scope, $http, $filter) {
 	     		fullName : fullName
 			}
 			console.log(data)
+
+			/* save to sellopoint */
 			$http.post(serverUrl + '/sellpoint/save', data).success(function(data) {
 				alert(data)
 				$scope.tel = ''
 				$scope.total = ''
 				$scope.point = ''
 				$scope.list()
+			})
+
+			/* save to userlog */
+			data = {
+				date 	: new Date(),
+				tel 	: tel,
+		     	point 	: parseInt($scope.point),
+			}
+			console.log(data)
+			$http.post(serverUrl + '/userlog/save', data).success(function(data) {
+				alert(data)
 			})
 		})
 	}

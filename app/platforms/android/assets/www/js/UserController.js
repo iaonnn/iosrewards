@@ -1,5 +1,3 @@
-var serverUrl = 'http://localhost:2222'
-
 /* user : main menu */
 app.controller('AppController', function($scope, $http) {
 	$scope.rewardslist = function() {
@@ -50,9 +48,13 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 	$scope.user = Share.getUser()
 
 	$scope.listRewards = function() {
-		$http.get(serverUrl + '/userrewards/' + Share.getTel()).success(function(data) {
-			$scope.userrewards = data
-			$scope.update = $filter('date')(data.update, 'yyyy-MM-dd HH:mm:ss')
+		/* get data : total points */
+		$http.get(serverUrl+'/userlog/'+Share.getTel()+'/balance').success(function(data) {
+			$scope.userlog = data
+		})
+		/* get data : update points */
+		$http.get(serverUrl+'/userlog/'+Share.getTel()+'/update').success(function(data) {
+			$scope.update = $filter('date')(data.date, 'yyyy-MM-dd HH:mm:ss')
 		})
 	}
 	$scope.listRewards()	
@@ -100,6 +102,15 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
   		new QRCode(div_qrcode, options);
 	}
 
+	/* function for page 'user/card_points.html' */
+	$scope.listUserlog = function() {
+		$http.get(serverUrl + '/userlog/list').success(function(data) {
+			$scope.datas = data
+		})
+
+		console.log('listUserlog Active')
+	}
+
 	/* function for page 'user/card_exchanging.html' */
 	$scope.total = 0
 	$scope.listExchanging = function() {
@@ -107,7 +118,7 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		$http.get(serverUrl + '/exchanging/list').success(function(data) {
 			$scope.exchangings = data
 
-			var currentPoints = $scope.userrewards.points
+			var currentPoints = $scope.userlog.points
 			console.log(currentPoints)
 			for(var i = 0; i < data.length; i++) {
 				if(currentPoints >= data[i].points) {

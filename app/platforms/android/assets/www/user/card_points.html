@@ -1,4 +1,4 @@
-<ons-page ng-controller="UserController">
+<ons-page ng-controller="UserController" ng-init="listUserlog()">
 	<ons-toolbar>
 		<div class="left">
 			<ons-back-button></ons-back-button>
@@ -15,39 +15,31 @@
 					<ons-row style="margin: 20px auto auto 15px; color: white;">
 						<ons-col>
 							คะแนนปัจจุบัน : 
-							<font color="red"><b>{{ 10 }}</b></font>
+							<font color="red"><b>{{ userlog.points }}</b></font>
 						</ons-col>
 					</ons-row>
 					<ons-row style="margin: 10px auto auto 15px; color: white;">
 						<ons-col>
 							ID : 
-							<font color="red"><b>{{ 03512344 }}</b></font>
+							<font color="red"><b>{{ user.tel }}</b></font>
 						</ons-col>
 					</ons-row>
 				</ons-col> 
 			</ons-row>
 		</ons-list-item>
 
-		<ons-list-item ng-repeat="i in [1,2,3,4,5]" class="item" style="border-bottom: 2px dashed gray;">
-			<ons-row> 
-				<ons-col> 
-					รายการที่ {{ i }}
-				</ons-col> 
-			</ons-row>
+		<ons-list-item ng-repeat="data in datas" class="item" style="border-bottom: 2px dashed gray;">
 			<ons-row style="margin-top: 5px;"> 
-				<ons-col ng-if="i%2==1">
-					<ons-icon icon="fa-plus-square" style="color: green"></ons-icon> 
-					{{ i + 5 }}
-				</ons-col> 
-				<ons-col ng-if="i%2==0">
-					<ons-icon icon="fa-minus-square" style="color: red"></ons-icon> 
-					{{ -(i + 5) }}
-				</ons-col> 
+				<ons-col>
+					<ons-icon ng-if="data.point > 0" icon="fa-plus-square" style="color: green"></ons-icon> 
+					<ons-icon ng-if="data.point < 0" icon="fa-minus-square" style="color: red"></ons-icon> 
+					{{ data.point }} แต้ม
+				</ons-col>
 				<ons-col>
 					<font color="gray" size="2"> 
-						2015-01-01 12:00:00
+						{{ data.date | date:'yyyy-MM-dd HH:mm' }}
 					</font>
-				</ons-col>
+				</ons-col> 
 			</ons-row>
 		</ons-list-item>
 	</ons-list> 
