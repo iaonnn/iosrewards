@@ -1,0 +1,39 @@
+<ons-page style="background-image: url('img/bg-user.jpg');">
+	<ons-toolbar>
+		<div class="left">
+			<ons-back-button>กลับ</ons-back-button>
+		</div>
+	</ons-toolbar>
+
+	<div align="center" style="margin-top: 50px;">
+		<ons-button ng-click="myNav.pushPage('user/information.html', {animation: 'lift'})" 
+			style="width: 200px; text-align: left">
+			<ons-icon icon="fa-bookmark"></ons-icon>
+			ข้อมูลของฉัน
+		</ons-button>
+		<br /><br />
+		<ons-button ng-click="myNav.pushPage('user/information-edit.html', {animation: 'lift'})"
+			style="width: 200px; text-align: left">
+			<ons-icon icon="fa-bookmark"></ons-icon>
+			แก้ไขข้อมูลของฉัน
+		</ons-button>
+		<br /><br />
+		<ons-button ng-click="myNav.pushPage('', {animation: 'lift'})"
+			style="width: 200px; text-align: left">
+			<ons-icon icon="fa-bookmark"></ons-icon>
+			วิธีการใช้งาน
+		</ons-button>
+		<br /><br />
+		<ons-button ng-click="myNav.pushPage('', {animation: 'lift'})"
+			style="width: 200px; text-align: left">
+			<ons-icon icon="fa-bookmark"></ons-icon>
+			บอกต่อเพื่อนๆ
+		</ons-button>
+		<br /><br />
+		<ons-button ng-click="myNav.pushPage('', {animation: 'lift'})"
+			style="width: 200px; text-align: left">
+			<ons-icon icon="fa-bookmark"></ons-icon>
+			ติดต่อ ผู้ให้บริการ
+		</ons-button>
+	</div>
+</ons-page>

@@ -1,4 +1,5 @@
 <ons-page ng-controller="UserController" style="background-image: url('img/bg-user.jpg');">
+	<!--
 	<ons-toolbar>
 		<div class="left">
 			<ons-back-button></ons-back-button>
@@ -6,6 +7,24 @@
 		<div class="right">
 			<ons-toolbar-button ng-click="myNav.resetToPage('index.html')">
 				<ons-icon icon="ion-log-out"></ons-icon>
+			</ons-toolbar-button>
+		</div>
+	</ons-toolbar>
+	-->
+	<ons-toolbar modifier="transparent">
+		<div class="left">
+			<ons-toolbar-button ng-click="myNav.resetToPage('index.html')">
+				<ons-icon icon="ion-arrow-left-c" 
+					style="color: orange; font-size: 30px; margin-top: 10px;" 
+					fixed-width="false"></ons-icon>
+				<span style="color: orange; font-weight: bold;">เลิกใช้งาน</span>
+			</ons-toolbar-button>
+		</div>
+		<div class="right">
+			<ons-toolbar-button ng-click="myNav.pushPage('user/user_settings.html')">
+				<ons-icon icon="ion-gear-a"
+					style="color: orange; font-size: 30px; margin-top: 10px;" 
+					fixed-width="false"></ons-icon>
 			</ons-toolbar-button>
 		</div>
 	</ons-toolbar>

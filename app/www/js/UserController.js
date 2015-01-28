@@ -81,18 +81,24 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 
 		$http.post(serverUrl + '/user/update/' + tel, data).success(function(data) {
 			//alert(data)
-			menu.setMainPage('user/settings.html')
+			myNav.popPage()
 		})
 	}
 
 	$scope.genQRCode = function() {
+		if(Share.getQrCode()) {
+			code = Share.getQrCode()
+			Share.setQrCode(false)
+		} else {
+			code = Share.getUser().tel
+		}
 		var div_qrcode = document.getElementById("qrcode")
   		//clear div
   		div_qrcode.innerHTML = ''
   		
   		//option for create
 		var options = {
-		    text : Share.getTel(),
+		    text : code,
 		    width: 150,
 		    height: 150,
 		    colorDark : "black",
@@ -129,9 +135,9 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 		})
 	}
 
-	$scope.exchange = function(id) {
+	$scope.exchange = function(id, point) {
 		ons.notification.confirm({
-			message: 'ID : ' + id,
+			message: 'คุณต้องการแลกบัตรกำนัลนี้ ?',
 			callback: function(idx) {
 				if(idx == 0) {
 					console.log('Cencel')
@@ -142,8 +148,20 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 					    tel: Share.getTel()
 					}
 					console.log(angular.toJson(data))
+					
 					$http.post(serverUrl + '/voucher/save', data).success(function(data) {
 						console.log(data)
+					})
+					data = {
+						date 	: new Date(),
+					    tel 	: Share.getUser().tel,
+					    point 	: parseInt(point) * -1
+					}
+					console.log(angular.toJson(data))
+					$http.post(serverUrl + '/userlog/save', data).success(function(data) {
+						console.log(data)
+						$scope.listRewards()
+						$scope.listExchanging()
 					})
 				}
 			}
@@ -165,6 +183,15 @@ app.controller('UserController', function($scope, $http, $filter, Share) {
 			}
 			$scope.exchangingNew = data.length - parseInt($scope.exchangingUsed)
 		})
+	}
+
+	$scope.getVoucher = function(status, id) {
+		if(!status) {
+			Share.setQrCode(id)
+			myNav.pushPage('user/card_qrcode.html')
+
+			console.log(id)
+		}
 	}
 })
 

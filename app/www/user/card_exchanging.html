@@ -1,10 +1,12 @@
 <ons-page ng-controller="UserController" ng-init="listExchanging()">
+	<!--
 	<ons-toolbar>
 		<div class="left">
 			<ons-back-button></ons-back-button>
 		</div>
 	</ons-toolbar>
-
+	-->
+	
 	<ons-list> 
 		<ons-list-item class="item" style="background-image: url('img/bg-user.jpg');"> 
 			<ons-row> 
@@ -12,12 +14,13 @@
 					<img class="mycard" />
 				</ons-col> 
 				<ons-col width="50%">
-					<ons-row style="margin: 20px auto auto 15px; color: white;">
+					<ons-row style="margin: 30px auto auto 15px; color: white;">
 						<ons-col>
 							คะแนนปัจจุบัน : 
-							<font color="red"><b>{{ userrewards.points }}</b></font>
+							<font color="red"><b>{{ userlog.points }}</b></font>
 						</ons-col>
 					</ons-row>
+					<!--
 					<ons-row style="margin: 10px auto auto 15px; color: white;">
 						<ons-col ng-if="total != 0">
 							สามารถแลกรับได้ : 
@@ -27,11 +30,12 @@
 							ไม่สามารถแลกรับบัตรกำนัลได้
 						</ons-col>
 					</ons-row>
+					-->
 				</ons-col> 
 			</ons-row>
 		</ons-list-item>
 
-		<ons-list-item ng-repeat="exchanging in exchangings" ng-click="exchange(exchanging._id)" class="item" style="border-bottom: 2px dashed gray;" modifier="tappable">
+		<ons-list-item ng-repeat="exchanging in exchangings" ng-click="exchange(exchanging._id, exchanging.points)" class="item" style="border-bottom: 2px dashed gray;" modifier="tappable">
 			<ons-row> 
 				<ons-col width="60px">
 					<img src="" height="60px" width="100%">
@@ -50,7 +54,7 @@
 						</ons-col>
 					</ons-row>
 				</ons-col> 
-				<ons-col width="50px" ng-if="userrewards.points >= exchanging.points">
+				<ons-col width="50px" ng-if="userlog.points >= exchanging.points">
 					<ons-icon icon="fa-check" size="50px" style="color: green;">
 				</ons-col>
 			</ons-row>

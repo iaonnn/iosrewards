@@ -28,7 +28,7 @@ module.exports.controller = function(app) {
 	app.post('/userlog/save', function(req, res) {
 		var obj = new Userlog(req.body)
 		obj.save(function(err) {
-			res.end('userlog')
+			res.end('userlog save')
 		})
 	})
 
