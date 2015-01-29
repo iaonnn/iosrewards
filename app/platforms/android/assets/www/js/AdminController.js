@@ -5,8 +5,8 @@ app.controller('LoginController', function($scope, $http, Share) {
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
-		tel = Share.getTel()
-
+		//tel = Share.getTel()
+		tel = '111'
 		$http.get(serverUrl + '/login/' + tel).success(function(user) {
 			console.log(user)
 			if(user != null) {
