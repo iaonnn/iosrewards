@@ -1,7 +1,7 @@
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	//myNav.resetToPage('user/index.html', {animation: 'none'})
+	myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
@@ -189,6 +189,27 @@ app.controller('PointController', function($scope, $http, $filter) {
 				alert(data)
 			})
 		})
+	}
+
+	$scope.scanQrCode = function() {
+		console.log('scanQrCode Active')
+
+		cordova.plugins.barcodeScanner.scan(success, fail);
+
+	   	function success(result) {
+	   		/*
+	        alert("We got a barcode\n" +
+	            "Result: " + result.text + "\n" +
+	            "Format: " + result.format + "\n" +
+	            "Cancelled: " + result.cancelled);
+			*/
+			$scope.tel = result.text
+			document.getElementById("tel").value = result.text
+	    }
+
+	    function fail(error) {
+	        alert("Scanning failed: " + error);
+	    }
 	}
 })
 

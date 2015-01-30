@@ -10,14 +10,14 @@
 	  		</ons-list-header>
 	  		<ons-list-item>
 	  			<ons-row>
-	  			<ons-col>
-	  			<input type="text" ng-model="tel" placeholder="เบอร์โทร" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
-	  			</ons-col>
-	  			<ons-col width="40px">
-	  			<ons-button modifier="cta">
-	  				<ons-icon icon="ion-qr-scanner"></ons-icon>
-	  			</ons-button>
-	  			</ons-col>
+		  			<ons-col>
+		  				<input type="text" id="tel" ng-model="tel" placeholder="เบอร์โทร" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		  			</ons-col>
+		  			<ons-col width="40px">
+			  			<ons-button modifier="cta" ng-click="scanQrCode()">
+			  				<ons-icon icon="ion-qr-scanner"></ons-icon>
+			  			</ons-button>
+		  			</ons-col>
 	  			</ons-row>
 	  		</ons-list-item>
 	  		<ons-list-item>
