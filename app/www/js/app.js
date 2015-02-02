@@ -1,7 +1,7 @@
 var app = angular.module('app', ['onsen', 'uiGmapgoogle-maps'])
 
-//var serverUrl = 'https://server-morerewards.rhcloud.com'
-var serverUrl = 'http://localhost:2222'
+var serverUrl = 'https://server-morerewards.rhcloud.com'
+//var serverUrl = 'http://localhost:2222'
 
 app.config(function($sceDelegateProvider) {
    $sceDelegateProvider.resourceUrlWhitelist([
