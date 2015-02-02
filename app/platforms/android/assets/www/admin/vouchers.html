@@ -1,0 +1,38 @@
+<ons-navigator var="myNavigator" ng-init="">
+	<ons-page ng-controller="VoucherController">
+		<ons-toolbar>
+	    	<div class="center">Admin Rewards</div>
+	  	</ons-toolbar>
+
+	  	<ons-list>
+	  		<ons-list-header style="padding: 5px;">
+	  			{{date}}
+	  		</ons-list-header>
+	  		<ons-list-item>
+	  			<ons-row>
+		  			<ons-col>
+		  				<input type="text" id="voucher_id" disabled="true" ng-model="voucher_id" placeholder="รหัสบัตรกำนัล" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+		  			</ons-col>
+		  			<ons-col width="40px">
+			  			<ons-button modifier="cta" ng-click="scanQrCode()">
+			  				<ons-icon icon="ion-qr-scanner"></ons-icon>
+			  			</ons-button>
+		  			</ons-col>
+	  			</ons-row>
+	  		</ons-list-item>
+	  	</ons-list>
+
+	  	<div style="margin: 8px;">
+	  		<ons-button modifier="large" ng-click="save()">แลกบัตรกำนัล</ons-button>
+	  	</div>
+
+	  	<ons-list ng-if="vouchers">
+	  		<ons-list-item>
+			  	{{ vouchers._exchangingId.detail }}
+	  		</ons-list-item>
+	  		<ons-list-item>
+				<img ng-src="{{vouchers._exchangingId.picUrl}}" width="100%" height="100%">
+	  		</ons-list-item>
+	  	</ons-list>
+	</ons-page>
+</ons-navigator>

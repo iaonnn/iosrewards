@@ -215,6 +215,51 @@ app.controller('PointController', function($scope, $http, $filter) {
 	}
 })
 
+/* admin : voucher */
+app.controller('VoucherController', function($scope, $http, $filter) {
+	$scope.date = $filter('date')(new Date(), 'fullDate')
+	//$scope.voucher_id = '54c95a2712c8b62c17084964'
+	$scope.vouchers = false
+
+	$scope.save = function() {
+		var id = $scope.voucher_id
+		console.log(id)
+
+		$http.get(serverUrl + '/voucher/change/' + id).success(function(data) {
+			console.log(data)
+
+			$http.get(serverUrl + '/voucher/list/id/' + id).success(function(data) {
+				$scope.vouchers = data
+			})
+		})		
+	}
+
+	$scope.scanQrCode = function() {
+		console.log('scanQrCode Active')
+
+		cordova.plugins.barcodeScanner.scan(success, fail);
+	   	function success(result) {
+	   		/*
+	        alert("We got a barcode\n" +
+	            "Result: " + result.text + "\n" +
+	            "Format: " + result.format + "\n" +
+	            "Cancelled: " + result.cancelled);
+			*/
+			$scope.voucher_id = result.text
+			document.getElementById("voucher_id").value = result.text
+	    }
+	    function fail(error) {
+	        alert("Scanning failed: " + error);
+	    }
+	}
+
+	$scope.listVoucher = function() {
+		$http.get(serverUrl + '/voucher/list/status').success(function(data) {
+			$scope.datas = data
+		})
+	}
+})
+
 /* admin : report */
 app.controller('ReportController', function($scope, $http) {
 
