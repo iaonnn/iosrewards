@@ -1,13 +1,14 @@
 /* user, admin : Login */
 app.controller('LoginController', function($scope, $http, Share) {
 
-	myNav.resetToPage('admin/index.html', {animation: 'none'})
+	//myNav.resetToPage('admin/index.html', {animation: 'none'})
 	$scope.checklogin = function() {
 		
 		var tel = $scope.tel
+		var pass = $scope.password
 		//tel = Share.getTel()
 		//tel = '111'
-		$http.get(serverUrl + '/login/' + tel).success(function(user) {
+		$http.get(serverUrl + '/login/' + tel + '/' + pass).success(function(user) {
 			console.log(user)
 			if(user != null) {
 				Share.setTel(user.tel)
@@ -17,7 +18,7 @@ app.controller('LoginController', function($scope, $http, Share) {
 				else
 					myNav.resetToPage('user/index.html', {animation: 'lift'})
 			} else {
-				alert('No User')
+				alert('Username/Password ไม่ถูกต้อง')
 			}
 		})
 	}
@@ -96,6 +97,7 @@ app.controller('RewardsController', function($scope, $http) {
 			point : parseInt($scope.point)
 		}
 		
+		console.log(data)
 		$http.post(serverUrl + '/rewards/save', data).success(function(data) {
 			alert(data)
 			$scope.total = ''
